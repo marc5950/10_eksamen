@@ -1,0 +1,40 @@
+---
+//@ts-nocheck
+import Layout from "../layouts/Layout.astro";
+export async function getStaticPaths() {
+  // Definerer URL'en til Supabase's REST API-endepunkt for at hente data fra `events`-tabellen.
+  const url =
+    "https://zrnyykbdrxfeksfkhkdf.supabase.co/rest/v1/events?select=*";
+  // Definerer API-nøglen til autentificering af anmodningen til Supabase.
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpybnl5a2JkcnhmZWtzZmtoa2RmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM4NDQ1MzUsImV4cCI6MjA1OTQyMDUzNX0.4yQJs3k6aA15OGExcR9DN4QAC5V8xngjk8lBGPRwkf4";
+  // Definerer indstillingerne for anmodningen, herunder HTTP-metoden (GET) og de nødvendige headers til autentificering.
+  const options = {
+    method: "GET",
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    },
+  };
+  // Udfører en fetch-anmodning til den angivne URL med de definerede indstillinger og venter på at modtage svaret.
+  const data = await fetch(url, options).then((res) => res.json());
+  console.log(data);
+
+  // Mapper over de hentede data og opretter en liste over stier, der skal genereres statisk. Hver sti indeholder en parameter `slug`, der svarer til den unikke slug for hver event.
+  // `params`-objektet bruges til at definere de dynamiske ruter i Astro.
+  // `props`-objektet bruges til at sende data til den genererede side.
+  return data.map((event) => {
+    return {
+      params: { slug: event.slug },
+      props: { event },
+    };
+  });
+}
+// Henter data for den specifikke event baseret på slug'en fra URL'en og sender det til komponenten som props.
+const { event } = Astro.props;
+---
+
+<Layout title={event.title}>
+  <h1>Hej</h1>
+</Layout>
