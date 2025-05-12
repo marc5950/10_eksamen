@@ -1,8 +1,144 @@
 ---
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
+import trænercard_evan_lille from "../assets/trænercard_evan_lille.png";
+import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
 ---
 
-<Layout title="Ashire Oure Boxing Club">
-  <h1>Hej</h1>
+<Layout title="Mød trænerne">
+  <div class="ydre flexcol">
+    <div class="trainer-cards flex">
+      <div class="trainer-card">
+        <img src={trænercard_evan_lille.src} alt="" />
+      </div>
+      <div class="trainer-card">
+        <img src={trænercard_evan_lille.src} alt="" />
+      </div>
+      <div class="trainer-card">
+        <img src={trænercard_evan_lille.src} alt="" />
+      </div>
+      <div class="trainer-card">
+        <img src={trænercard_evan_lille.src} alt="" />
+      </div>
+      <div class="trainer-card">
+        <img src={trænercard_evan_lille.src} alt="" />
+      </div>
+
+      <!-- Tilføj flere kort efter behov -->
+    </div>
+    <div class="scrollknap flex">
+      <button class="nav-btn prev-btn"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.939341 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939341 10.9393ZM24 12V10.5L2 10.5V12V13.5L24 13.5V12Z"
+            fill="#EFEFEF"></path>
+        </svg></button
+      >
+      <button class="nav-btn next-btn"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM22 12V10.5L0 10.5V12V13.5L22 13.5V12Z"
+            fill="#EFEFEF"></path>
+        </svg></button
+      >
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .ydre {
+    margin: 50px 10px 0;
+  }
+  .trainer-cards {
+    max-width: 1020px;
+    width: 100%;
+    gap: 28px;
+    overflow: hidden;
+    justify-content: center;
+    height: 430px;
+    border-left: 5px solid var(--color-primary);
+    border-right: 5px solid var(--color-primary);
+    border-radius: 15px;
+  }
+
+  .trainer-card {
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+    opacity: 0.7;
+    z-index: 1;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .trainer-card.active {
+    transform: scale(1.2);
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .scrollknap {
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .nav-btn {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 50px;
+    background: var(--color-primary);
+    transition: all 0.3s ease;
+    justify-content: center;
+    border: none;
+  }
+
+  .nav-btn:hover {
+    scale: 1.05;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const trainerCards = document.querySelectorAll(".trainer-card");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    let currentIndex = 0;
+
+    function updateActiveCard() {
+      // Fjern aktiv klasse fra alle kort
+      trainerCards.forEach((card) => card.classList.remove("active"));
+
+      // Tilføj aktiv klasse til det centrale kort
+      trainerCards[currentIndex].classList.add("active");
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex =
+        (currentIndex - 1 + trainerCards.length) % trainerCards.length;
+      updateActiveCard();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % trainerCards.length;
+      updateActiveCard();
+    });
+
+    // Sæt det første kort som aktivt ved start
+    updateActiveCard();
+  });
+</script>

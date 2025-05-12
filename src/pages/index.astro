@@ -1,8 +1,112 @@
 ---
 //@ts-nocheck
+import Knap from "../components/Knap.astro";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import iglogo from "../assets/iglogo.svg";
+import fblogo from "../assets/fblogo.svg";
+import linkedinlogo from "../assets/linkedinlogo.svg";
+import fs_hero from "../assets/fs_hero.png";
 ---
 
 <Layout title="Ashire Oure Boxing Club">
-  <h1>Hej</h1>
+  <div class="heroydre">
+    <div class="heroindre">
+      <img src={fs_hero.src} alt="" />
+    </div>
+  </div>
+  <div class="ctaydre ydre flexcol">
+    <div class="ctaindre indre flexcol">
+      <div class="ctaboks ctaboks1 flex">
+        <Button text="Personlig Træning" link="/#" />
+        <p>
+          Få 1:1 coaching, målrettet feedback og et træningsforløb tilpasset dig
+        </p>
+      </div>
+      <div class="ctaboks ctaboks2 flex">
+        <Button text="Se vores hold" link="/holdtræning" />
+        <p>
+          Se tider, priser og niveauer for vores holdtræning – fra nybegynder
+          til erfaren
+        </p>
+      </div>
+      <div class="ctaboks ctaboks3 flex">
+        <Button text="Mød vores træner team" link="/trænerne" />
+        <p>
+          Lær vores dygtige trænere at kende – læs om deres baggrund og tilgang
+        </p>
+      </div>
+    </div>
+    <div class="line"></div>
+  </div>
+  <div class="evansydre ydre flexcol"></div>
+  <div class="3dmap ydre flexcol"></div>
+  <div class="SoMeydre ydre flexcol">
+    <div class="SoMeindre indre flexcol">
+      <div class="SoMelinks flex">
+        <img src={iglogo.src} alt="link til instagram" />
+        <img src={fblogo.src} alt="link til facebook" />
+        <img src={linkedinlogo.src} alt="link til linkedin" />
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  /* Hero */
+  .heroindre {
+    width: 100%;
+    height: 100vh;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .heroindre {
+      height: 50vh;
+    }
+  }
+  /* CTA */
+  .ctaindre {
+    gap: 50px;
+  }
+  .ctaydre {
+    padding: 50px 10px 50px 10px;
+    gap: 50px;
+  }
+  .ctaboks {
+    width: 100%;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    gap: 10px;
+    padding: 10px;
+    p {
+      max-width: 40ch;
+    }
+  }
+  .ctaboks2 {
+    justify-content: center;
+  }
+  .ctaboks3 {
+    justify-content: end;
+  }
+  .line {
+    max-width: 1175px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    background: var(--color-primary);
+  }
+  /* SoMe */
+  .SoMelinks {
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+</style>

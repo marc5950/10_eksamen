@@ -1,0 +1,28 @@
+---
+const { link, text } = Astro.props;
+---
+
+<button
+  ><a href={link}>
+    {text}
+  </a></button
+>
+
+<style>
+  button {
+    display: flex;
+    padding: 5px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: var(--color-white);
+    border: none;
+    box-shadow: 3px 3px 0px 0px #bf1f26;
+    transition: all 0.2s ease;
+    width: max-content;
+  }
+
+  button:hover {
+    scale: 1.05;
+  }
+</style>

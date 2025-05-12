@@ -1,0 +1,91 @@
+:root {
+  --color-primary: #bf1f26;
+  --color-secondary: #181818;
+  --color-accent: #e9ecef;
+  --color-background: #181818;
+  --color-white: #efefef;
+  --color-black: #0f0f0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: var(--color-background);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  font-family: "dharma-gothic-m", sans-serif;
+  color: var(--color-black);
+}
+a {
+  font-family: "dharma-gothic-e";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+h2 {
+  font-size: 1.167rem;
+  line-height: 20px;
+  margin: 0.5rem 0;
+}
+h3 {
+  font-size: 0.833rem;
+  line-height: 15px;
+  margin: 0.5rem 0;
+}
+p {
+  font-size: 0.75rem;
+  margin: 0.5rem 0;
+  line-height: 13px;
+  font-family: "lato", sans-serif;
+  color: var(--color-black);
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  cursor: default;
+}
+a,
+button,
+li {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flexcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.indre {
+  max-width: 1020px;
+  width: 100%;
+}
+.ydre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
