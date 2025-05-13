@@ -7,28 +7,72 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
 
 <Layout title="Mød trænerne">
   <div class="ydre flexcol">
-    <div class="trainer-cards flex">
-      <div class="trainer-card">
-        <img src={trænercard_evan_lille.src} alt="" />
+    <div class="cards-container">
+      <div class="trainer-cards">
+        <div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_evan_lille.src}
+            alt="Træner 1"
+          />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 1"
+          />
+        </div>
+        <div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_evan_lille.src}
+            alt="Træner 2"
+          />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 2"
+          />
+        </div>
+        <div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_evan_lille.src}
+            alt="Evans Ashira"
+          />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Evans Ashira"
+          />
+        </div>
+        <div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_evan_lille.src}
+            alt="Træner 4"
+          />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 4"
+          />
+        </div><div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_evan_lille.src}
+            alt="Træner 5"
+          />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 5"
+          />
+        </div>
       </div>
-      <div class="trainer-card">
-        <img src={trænercard_evan_lille.src} alt="" />
-      </div>
-      <div class="trainer-card">
-        <img src={trænercard_evan_lille.src} alt="" />
-      </div>
-      <div class="trainer-card">
-        <img src={trænercard_evan_lille.src} alt="" />
-      </div>
-      <div class="trainer-card">
-        <img src={trænercard_evan_lille.src} alt="" />
-      </div>
-
-      <!-- Tilføj flere kort efter behov -->
     </div>
     <div class="scrollknap flex">
-      <button class="nav-btn prev-btn"
-        ><svg
+      <button class="nav-btn prev-btn">
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -38,10 +82,10 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
           <path
             d="M0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.939341 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939341 10.9393ZM24 12V10.5L2 10.5V12V13.5L24 13.5V12Z"
             fill="#EFEFEF"></path>
-        </svg></button
-      >
-      <button class="nav-btn next-btn"
-        ><svg
+        </svg>
+      </button>
+      <button class="nav-btn next-btn">
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -51,8 +95,8 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
           <path
             d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM22 12V10.5L0 10.5V12V13.5L22 13.5V12Z"
             fill="#EFEFEF"></path>
-        </svg></button
-      >
+        </svg>
+      </button>
     </div>
   </div>
 </Layout>
@@ -61,27 +105,41 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
   .ydre {
     margin: 50px 10px 0;
   }
-  .trainer-cards {
+
+  .cards-container {
     max-width: 1020px;
     width: 100%;
-    gap: 28px;
-    overflow: hidden;
-    justify-content: center;
-    height: 430px;
+    position: relative;
     border-left: 5px solid var(--color-primary);
     border-right: 5px solid var(--color-primary);
     border-radius: 15px;
+    height: 430px;
+    overflow: hidden;
+  }
+
+  .trainer-cards {
+    display: flex;
+    position: absolute;
+    left: 0;
+    transition: transform 0.5s ease;
+    height: 100%;
+    align-items: center;
   }
 
   .trainer-card {
-    transition: all 0.3s ease;
-    transform: scale(0.9);
-    opacity: 0.7;
-    z-index: 1;
+    height: 350px;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.5s ease;
+    transform-origin: center;
+    flex-shrink: 0;
+    opacity: 0.3;
+  }
 
-    img {
-      object-fit: cover;
-    }
+  .trainer-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .trainer-card.active {
@@ -94,6 +152,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
     gap: 10px;
     margin: 20px 0;
   }
+
   .nav-btn {
     width: 50px;
     height: 50px;
@@ -104,41 +163,116 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
     transition: all 0.3s ease;
     justify-content: center;
     border: none;
+    cursor: pointer;
   }
 
   .nav-btn:hover {
     scale: 1.05;
   }
+
+  .trainer-card .active-img {
+    display: none;
+  }
+
+  .trainer-card.active .default-img {
+    display: none;
+  }
+
+  .trainer-card.active .active-img {
+    display: block;
+  }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const trainerCards = document.querySelectorAll(".trainer-card");
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
+    // TypeScript-sikker måde at vælge elementer
+    const cardsContainer = document.querySelector(
+      ".trainer-cards",
+    ) as HTMLElement;
+    const trainerCardsNodeList = document.querySelectorAll(".trainer-card");
+    const prevBtn = document.querySelector(".prev-btn") as HTMLButtonElement;
+    const nextBtn = document.querySelector(".next-btn") as HTMLButtonElement;
 
-    let currentIndex = 0;
+    // Konverter NodeList til array for typesikkerhed
+    const trainerCards = Array.from(trainerCardsNodeList).map(
+      (card) => card as HTMLElement,
+    );
 
-    function updateActiveCard() {
-      // Fjern aktiv klasse fra alle kort
-      trainerCards.forEach((card) => card.classList.remove("active"));
+    // Beregn kortbredden inkl. margin
+    const firstCard = trainerCards[0];
+    const firstCardStyle = window.getComputedStyle(firstCard);
+    // Hent margin-left og margin-right værdier
+    // og konverter dem til tal
+    const marginLeft = parseInt(firstCardStyle.marginLeft || "0");
+    const marginRight = parseInt(firstCardStyle.marginRight || "0");
+    // Beregn kortbredden inkl. margin
+    // cardWidth = kortbredde + margin-left + margin-right
+    const cardWidth = firstCard.offsetWidth + marginLeft + marginRight;
 
-      // Tilføj aktiv klasse til det centrale kort
-      trainerCards[currentIndex].classList.add("active");
+    // Start med tredje kort i midten (index 2)
+    let currentIndex = 2;
+    const totalCards = trainerCards.length;
+
+    function initCarousel() {
+      const containerElement = document.querySelector(
+        ".cards-container",
+      ) as HTMLElement;
+      if (!containerElement) return;
+
+      const containerWidth = containerElement.offsetWidth;
+      const initialOffset = (containerWidth - cardWidth) / 2;
+
+      // Kompensér for oprindeligt index 2
+      const startPosition = initialOffset - currentIndex * cardWidth;
+      cardsContainer.style.transform = `translateX(${startPosition}px)`;
+      updateActiveCard();
     }
 
+    function updateActiveCard() {
+      // Opdater aktiv kort
+      // Fjern "active" klasse fra alle kort
+      trainerCards.forEach((card) => card.classList.remove("active"));
+      // Tilføj "active" klasse til det aktuelle kort
+      const activeCard = trainerCards[currentIndex];
+      activeCard.classList.add("active");
+
+      // Beregn ny scroll-position
+      const containerElement = document.querySelector(
+        ".cards-container",
+      ) as HTMLElement;
+      if (!containerElement) return;
+
+      const containerWidth = containerElement.offsetWidth;
+
+      // Beregn ny bredde (efter aktiv-billede er synligt)
+      const activeCardStyle = window.getComputedStyle(activeCard);
+      const marginLeft = parseInt(activeCardStyle.marginLeft || "0");
+      const marginRight = parseInt(activeCardStyle.marginRight || "0");
+      const activeCardWidth = activeCard.offsetWidth + marginLeft + marginRight;
+      const scrollPosition =
+        -currentIndex * cardWidth + (containerWidth - activeCardWidth) / 2;
+
+      // Anvend transformationen
+      cardsContainer.style.transform = `translateX(${scrollPosition}px)`;
+    }
+
+    // Tilføj event listeners til knapperne
     prevBtn.addEventListener("click", () => {
-      currentIndex =
-        (currentIndex - 1 + trainerCards.length) % trainerCards.length;
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
       updateActiveCard();
     });
 
     nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % trainerCards.length;
+      currentIndex = (currentIndex + 1) % totalCards;
       updateActiveCard();
     });
 
-    // Sæt det første kort som aktivt ved start
-    updateActiveCard();
+    // Initialiser karrusellen
+    initCarousel();
+
+    // Håndter vindue-resize
+    window.addEventListener("resize", () => {
+      initCarousel();
+    });
   });
 </script>
