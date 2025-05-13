@@ -15,6 +15,9 @@
 html {
   background-color: var(--color-background);
   scroll-behavior: smooth;
+  cursor:
+    url(https://cdn.custom-cursor.com/db/15786/32/minimal-boxing-gloves-cursor.png),
+    default;
 }
 
 h1,
@@ -63,12 +66,16 @@ h2,
 h3,
 h4,
 p {
-  cursor: default;
+  cursor:
+    url(https://cdn.custom-cursor.com/db/15786/32/minimal-boxing-gloves-cursor.png),
+    default;
 }
 a,
 button,
 li {
-  cursor: pointer;
+  cursor:
+    url(https://cdn.custom-cursor.com/db/15785/32/minimal-boxing-gloves-pointer.png),
+    pointer;
 }
 
 .flex {
@@ -88,4 +95,8 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#container > * {
+  position: relative;
 }
