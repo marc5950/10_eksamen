@@ -183,103 +183,104 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
   }
 </style>
 
-<script is:client="load">
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    // På netlify, vent med at initialisere indtil alt er fuldt indlæst
     window.addEventListener("load", () => {
-      setTimeout(initTrainerCarousel, 200);
+      setTimeout(initFuncCarousel, 200);
     });
 
-    function initTrainerCarousel() {
+    function initFuncCarousel() {
       // TypeScript-sikker måde at vælge elementer
-      const cardsContainer = document.querySelector(".trainer-cards");
+      const cardsContainer = document.querySelector(
+        ".trainer-cards",
+      ) as HTMLElement;
       const trainerCardsNodeList = document.querySelectorAll(".trainer-card");
-      const prevBtn = document.querySelector(".prev-btn");
-      const nextBtn = document.querySelector(".next-btn");
-
-      if (
-        !cardsContainer ||
-        !prevBtn ||
-        !nextBtn ||
-        trainerCardsNodeList.length === 0
-      ) {
-        console.error("Could not find carousel elements");
-        return;
-      }
+      const prevBtn = document.querySelector(".prev-btn") as HTMLButtonElement;
+      const nextBtn = document.querySelector(".next-btn") as HTMLButtonElement;
 
       // Konverter NodeList til array for typesikkerhed
-      const trainerCards = Array.from(trainerCardsNodeList);
+      const trainerCards = Array.from(trainerCardsNodeList).map(
+        (card) => card as HTMLElement,
+      );
+
+      // Beregn kortbredden inkl. margin
+      const firstCard = trainerCards[0];
+      const firstCardStyle = window.getComputedStyle(firstCard);
+      // Hent margin-left og margin-right værdier
+      // og konverter dem til tal
+      const marginLeft = parseInt(firstCardStyle.marginLeft || "0");
+      const marginRight = parseInt(firstCardStyle.marginRight || "0");
+      // Beregn kortbredden inkl. margin
+      // cardWidth = kortbredde + margin-left + margin-right
+      const cardWidth = firstCard.offsetWidth + marginLeft + marginRight;
 
       // Start med tredje kort i midten (index 2)
       let currentIndex = 2;
       const totalCards = trainerCards.length;
 
-      function updateCarouselPosition() {
-        const containerElement = document.querySelector(".cards-container");
+      function initCarousel() {
+        const containerElement = document.querySelector(
+          ".cards-container",
+        ) as HTMLElement;
+        if (!containerElement) return;
+
+        const containerWidth = containerElement.offsetWidth;
+        const initialOffset = (containerWidth - cardWidth) / 2;
+
+        // Kompensér for oprindeligt index 2
+        const startPosition = initialOffset - currentIndex * cardWidth;
+        cardsContainer.style.transform = `translateX(${startPosition}px)`;
+        updateActiveCard();
+      }
+
+      function updateActiveCard() {
+        // Opdater aktiv kort
+        // Fjern "active" klasse fra alle kort
+        trainerCards.forEach((card) => card.classList.remove("active"));
+        // Tilføj "active" klasse til det aktuelle kort
+        const activeCard = trainerCards[currentIndex];
+        activeCard.classList.add("active");
+
+        // Beregn ny scroll-position
+        const containerElement = document.querySelector(
+          ".cards-container",
+        ) as HTMLElement;
         if (!containerElement) return;
 
         const containerWidth = containerElement.offsetWidth;
 
-        // Find the active card
-        const activeCard = trainerCards[currentIndex];
-
-        // Først fjern active class fra alle kort
-        trainerCards.forEach((card) => card.classList.remove("active"));
-
-        // Tilføj active class til det aktuelle kort
-        activeCard.classList.add("active");
-
-        // Beregn kortbredde for hvert kort (de kan være forskellige størrelser)
-        let totalCardsWidth = 0;
-        const cardPositions = [];
-
-        // Beregn position for hvert kort
-        trainerCards.forEach((card, index) => {
-          const style = window.getComputedStyle(card);
-          const marginLeft = parseInt(style.marginLeft || "0");
-          const marginRight = parseInt(style.marginRight || "0");
-          const width = card.offsetWidth + marginLeft + marginRight;
-
-          cardPositions.push(totalCardsWidth);
-          totalCardsWidth += width;
-        });
-
-        // Beregn bredde og position for det aktive kort
+        // Beregn ny bredde (efter aktiv-billede er synligt)
         const activeCardStyle = window.getComputedStyle(activeCard);
-        const activeMarginLeft = parseInt(activeCardStyle.marginLeft || "0");
-        const activeMarginRight = parseInt(activeCardStyle.marginRight || "0");
+        const marginLeft = parseInt(activeCardStyle.marginLeft || "0");
+        const marginRight = parseInt(activeCardStyle.marginRight || "0");
         const activeCardWidth =
-          activeCard.offsetWidth + activeMarginLeft + activeMarginRight;
+          activeCard.offsetWidth + marginLeft + marginRight;
+        const scrollPosition =
+          -currentIndex * cardWidth + (containerWidth - activeCardWidth) / 2;
 
-        // Beregn positionen til at centrere det aktive kort
-        const centerPosition = (containerWidth - activeCardWidth) / 2;
-        const activeCardPosition = cardPositions[currentIndex];
-        const translateX = centerPosition - activeCardPosition;
-
-        // Anvend transformationen med en lille forsinkelse for at sikre, at styling er applied
-        setTimeout(() => {
-          cardsContainer.style.transform = `translateX(${translateX}px)`;
-        }, 10);
+        // Anvend transformationen
+        cardsContainer.style.transform = `translateX(${scrollPosition}px)`;
       }
 
       // Tilføj event listeners til knapperne
       prevBtn.addEventListener("click", () => {
         currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        updateCarouselPosition();
+        updateActiveCard();
       });
 
       nextBtn.addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % totalCards;
-        updateCarouselPosition();
+        updateActiveCard();
       });
 
       // Initialiser karrusellen
-      updateCarouselPosition();
+      initCarousel();
 
       // Håndter vindue-resize
       window.addEventListener("resize", () => {
-        updateCarouselPosition();
+        initCarousel();
       });
+      console.log(cardsContainer, trainerCards.length, prevBtn, nextBtn);
     }
   });
 </script>
