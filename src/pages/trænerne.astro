@@ -183,20 +183,16 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
   }
 </style>
 
-<script>
+<script is:client="idle">
   document.addEventListener("DOMContentLoaded", () => {
-    // TypeScript-sikker måde at vælge elementer
-    const cardsContainer = document.querySelector(
-      ".trainer-cards",
-    ) as HTMLElement;
+    // Hent elementerne
+    const cardsContainer = document.querySelector(".trainer-cards");
     const trainerCardsNodeList = document.querySelectorAll(".trainer-card");
-    const prevBtn = document.querySelector(".prev-btn") as HTMLButtonElement;
-    const nextBtn = document.querySelector(".next-btn") as HTMLButtonElement;
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
 
     // Konverter NodeList til array for typesikkerhed
-    const trainerCards = Array.from(trainerCardsNodeList).map(
-      (card) => card as HTMLElement,
-    );
+    const trainerCards = Array.from(trainerCardsNodeList).map((card) => card);
 
     // Beregn kortbredden inkl. margin
     const firstCard = trainerCards[0];
@@ -214,9 +210,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
     const totalCards = trainerCards.length;
 
     function initCarousel() {
-      const containerElement = document.querySelector(
-        ".cards-container",
-      ) as HTMLElement;
+      const containerElement = document.querySelector(".cards-container");
       if (!containerElement) return;
 
       const containerWidth = containerElement.offsetWidth;
@@ -237,9 +231,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
       activeCard.classList.add("active");
 
       // Beregn ny scroll-position
-      const containerElement = document.querySelector(
-        ".cards-container",
-      ) as HTMLElement;
+      const containerElement = document.querySelector(".cards-container");
       if (!containerElement) return;
 
       const containerWidth = containerElement.offsetWidth;
@@ -274,5 +266,6 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
     window.addEventListener("resize", () => {
       initCarousel();
     });
+    console.log(cardsContainer, trainerCards.length, prevBtn, nextBtn);
   });
 </script>
