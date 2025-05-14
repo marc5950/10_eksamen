@@ -1,8 +1,12 @@
 ---
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 import trænercard_evan_lille from "../assets/trænercard_evan_lille.png";
 import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
+import trænercard_allan_lille from "../assets/trænercard_allan_lille.png";
+import trænercard_allan_stor from "../assets/trænercard_allan_stor.png";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Mød trænerne">
@@ -15,23 +19,21 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
             src={trænercard_evan_lille.src}
             alt="Træner 1"
           />
-          <img
-            class="active-img"
-            src={trænercard_evan_stor.src}
-            alt="Træner 1"
-          />
+          <div class="active-img">
+            <img src={trænercard_evan_stor.src} alt="Træner 1" />
+            <Button text="Bestil tid" link="#" />
+          </div>
         </div>
         <div class="trainer-card">
           <img
             class="default-img"
-            src={trænercard_evan_lille.src}
-            alt="Træner 2"
+            src={trænercard_allan_lille.src}
+            alt="Allan"
           />
-          <img
-            class="active-img"
-            src={trænercard_evan_stor.src}
-            alt="Træner 2"
-          />
+          <div class="active-img">
+            <img src={trænercard_allan_stor.src} alt="Allan" />
+            <Button text="Bestil tid" link="#" />
+          </div>
         </div>
         <div class="trainer-card">
           <img
@@ -39,11 +41,10 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
             src={trænercard_evan_lille.src}
             alt="Evans Ashira"
           />
-          <img
-            class="active-img"
-            src={trænercard_evan_stor.src}
-            alt="Evans Ashira"
-          />
+          <div class="active-img">
+            <img src={trænercard_evan_stor.src} alt="Evans Ashira" />
+            <Button text="Bestil tid" link="#" />
+          </div>
         </div>
         <div class="trainer-card">
           <img
@@ -51,22 +52,20 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
             src={trænercard_evan_lille.src}
             alt="Træner 4"
           />
-          <img
-            class="active-img"
-            src={trænercard_evan_stor.src}
-            alt="Træner 4"
-          />
+          <div class="active-img">
+            <img src={trænercard_evan_stor.src} alt="Træner 4" />
+            <Button text="Bestil tid" link="#" />
+          </div>
         </div><div class="trainer-card">
           <img
             class="default-img"
             src={trænercard_evan_lille.src}
             alt="Træner 5"
           />
-          <img
-            class="active-img"
-            src={trænercard_evan_stor.src}
-            alt="Træner 5"
-          />
+          <div class="active-img">
+            <img src={trænercard_evan_stor.src} alt="Træner 5" />
+            <Button text="Bestil tid" link="#" />
+          </div>
         </div>
       </div>
     </div>
@@ -104,6 +103,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
 <style>
   .ydre {
     margin: 50px 10px 0;
+    height: 80vh;
   }
 
   .cards-container {
@@ -113,7 +113,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
     /* border-left: 5px solid var(--color-primary); */
     /* border-right: 5px solid var(--color-primary); */
     border-radius: 15px;
-    height: 500px;
+    height: 100%;
     overflow: hidden;
 
     /* Add the portal fade effect with mask gradients */
@@ -152,6 +152,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
   }
 
   .trainer-card.active {
+    width: 400px;
     transform: scale(1.3);
     opacity: 1;
     z-index: 10;
@@ -159,7 +160,7 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
 
   .scrollknap {
     gap: 10px;
-    margin: 20px 0;
+    padding: 20px 0;
   }
 
   .nav-btn {
@@ -187,7 +188,10 @@ import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
   }
 
   .trainer-card.active .active-img {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
 </style>
 
