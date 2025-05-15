@@ -27,12 +27,12 @@ h4,
 h5,
 h6,
 li {
-  font-family: "dharma-gothic-m", sans-serif;
+  font-family: "dharma-gothic-e", sans-serif;
   color: var(--color-black);
 }
 a {
   font-family: "dharma-gothic-e";
-  font-size: 28px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

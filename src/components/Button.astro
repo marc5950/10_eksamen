@@ -20,6 +20,9 @@ const { link, text } = Astro.props;
     box-shadow: 3px 3px 0px 0px #bf1f26;
     transition: all 0.2s ease;
     width: max-content;
+    a {
+      font-size: clamp(1em, 1.3vw, 1.3em);
+    }
   }
 
   button:hover {
