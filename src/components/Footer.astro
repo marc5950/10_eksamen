@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+import effekt1 from "../assets/bg_footerhvid.png";
+---
+
+<div class="footerboks flexcol">
+  <img class="effekt1" src={effekt1.src} alt="" />
+  <div class="footerydre">
+    <div class="footerindre">
+      <a href="/">hjem</a>
+      <a href="/trænerne">trænerne</a>
+      <a href="/holdtræning">holdtræning</a>
+      <a href="/kontakt">kontakt</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .effekt1 {
+    max-height: 200px;
+    z-index: 10;
+  }
+  .footerydre {
+    background-color: var(--color-primary);
+    padding: 8% 20px 20px;
+    margin-top: -6%;
+  }
+</style>

@@ -12,6 +12,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+img {
+  width: 100%;
+  height: auto;
+}
 html {
   background-color: var(--color-background);
   scroll-behavior: smooth;
@@ -97,6 +102,6 @@ li {
   justify-content: center;
 }
 
-#container > * {
+/* #container > * {
   position: relative;
-}
+} */

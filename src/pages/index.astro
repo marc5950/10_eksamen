@@ -6,14 +6,15 @@ import iglogo from "../assets/iglogo.svg";
 import fblogo from "../assets/fblogo.svg";
 import linkedinlogo from "../assets/linkedinlogo.svg";
 import fs_hero from "../assets/fs_hero.png";
+import evans_effekt from "../assets/evans_effekt.png";
 ---
 
 <Layout title="Ashire Oure Boxing Club">
   <div class="heroydre">
-    <div class="heroindre">
-      <img src={fs_hero.src} alt="" />
-    </div>
+    <img src={fs_hero.src} alt="" />
+    <div class="heroindre"></div>
   </div>
+  <div class="banner"></div>
   <div class="ctaydre ydre flexcol">
     <div class="ctaindre indre flexcol">
       <div class="ctaboks ctaboks1 flex">
@@ -36,9 +37,12 @@ import fs_hero from "../assets/fs_hero.png";
         </p>
       </div>
     </div>
-    <div class="line"></div>
   </div>
-  <div class="evansydre ydre flexcol"></div>
+  <div class="evansydre ydre flexcol">
+    <div class="evansindre indre flexcol">
+      <img class="evans_effekt" src={evans_effekt.src} alt="" />
+    </div>
+  </div>
   <div class="3dmap ydre flexcol"></div>
   <div class="SoMeydre ydre flexcol">
     <div class="SoMeindre indre flexcol">
@@ -53,20 +57,32 @@ import fs_hero from "../assets/fs_hero.png";
 
 <style>
   /* Hero */
-  .heroindre {
+  .heroydre {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     img {
       height: 100%;
+      width: 100%;
       object-fit: cover;
     }
   }
 
   @media (max-width: 768px) {
-    .heroindre {
+    .heroydre {
       height: 50vh;
     }
   }
+
+  /* Banner */
+  .banner {
+    width: 100%;
+    height: 10vh;
+    background-image: url("/champions_banner.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%; /* Gør billedet 100% højden af .banner */
+    background-position: top;
+  }
+
   /* CTA */
   .ctaindre {
     gap: 50px;
@@ -91,12 +107,17 @@ import fs_hero from "../assets/fs_hero.png";
   .ctaboks3 {
     justify-content: end;
   }
-  .line {
-    max-width: 1175px;
-    width: 100%;
-    height: 30px;
-    border-radius: 10px;
-    background: var(--color-primary);
+
+  /* Evans */
+  .evansindre {
+    position: relative;
+    height: 1000px;
+  }
+  .evans_effekt {
+    position: absolute;
+    top: 0;
+    left: -100px;
+    object-fit: cover;
   }
   /* SoMe */
   .SoMelinks {
