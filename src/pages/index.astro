@@ -7,6 +7,7 @@ import fblogo from "../assets/fblogo.svg";
 import linkedinlogo from "../assets/linkedinlogo.svg";
 import fs_hero from "../assets/fs_hero.png";
 import evans_effekt from "../assets/evans_effekt.png";
+import cta_effekt from "../assets/cta_effekt.png";
 ---
 
 <Layout title="Ashire Oure Boxing Club">
@@ -15,32 +16,14 @@ import evans_effekt from "../assets/evans_effekt.png";
     <div class="heroindre"></div>
   </div>
   <div class="banner"></div>
-  <div class="ctaydre ydre flexcol">
-    <div class="ctaindre indre flexcol">
-      <div class="ctaboks ctaboks1 flex">
-        <Button text="Personlig Træning" link="/#" />
-        <p>
-          Få 1:1 coaching, målrettet feedback og et træningsforløb tilpasset dig
-        </p>
-      </div>
-      <div class="ctaboks ctaboks2 flex">
-        <Button text="Se vores hold" link="/holdtræning" />
-        <p>
-          Se tider, priser og niveauer for vores holdtræning – fra nybegynder
-          til erfaren
-        </p>
-      </div>
-      <div class="ctaboks ctaboks3 flex">
-        <Button text="Mød vores træner team" link="/trænerne" />
-        <p>
-          Lær vores dygtige trænere at kende – læs om deres baggrund og tilgang
-        </p>
-      </div>
-    </div>
-  </div>
   <div class="evansydre ydre flexcol">
     <div class="evansindre indre flexcol">
       <img class="evans_effekt" src={evans_effekt.src} alt="" />
+    </div>
+  </div>
+  <div class="ctaydre ydre flexcol">
+    <div class="ctaindre indre flexcol">
+      <img class="cta_effekt" src={cta_effekt.src} alt="" />
     </div>
   </div>
   <div class="3dmap ydre flexcol"></div>
@@ -81,42 +64,36 @@ import evans_effekt from "../assets/evans_effekt.png";
     background-repeat: repeat-x;
     background-size: auto 100%; /* Gør billedet 100% højden af .banner */
     background-position: top;
+    z-index: 10;
+    position: relative;
   }
 
   /* CTA */
+  .ctaydre {
+    gap: 50px;
+  }
   .ctaindre {
     gap: 50px;
+    height: 12em;
+
+    position: relative;
   }
-  .ctaydre {
-    padding: 50px 10px 50px 10px;
-    gap: 50px;
-  }
-  .ctaboks {
-    width: 100%;
-    background-color: var(--color-white);
-    border-radius: 5px;
-    gap: 10px;
-    padding: 10px;
-    p {
-      max-width: 40ch;
-    }
-  }
-  .ctaboks2 {
-    justify-content: center;
-  }
-  .ctaboks3 {
-    justify-content: end;
+  .cta_effekt {
+    position: absolute;
+    top: 6%;
+    left: -1%;
+    object-fit: cover;
   }
 
   /* Evans */
   .evansindre {
     position: relative;
-    height: 1000px;
+    height: 17em;
   }
   .evans_effekt {
     position: absolute;
-    top: 0;
-    left: -100px;
+    top: -1%;
+    left: 0%;
     object-fit: cover;
   }
   /* SoMe */
