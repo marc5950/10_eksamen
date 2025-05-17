@@ -17,12 +17,12 @@ import cta_effekt from "../assets/cta_effekt.png";
   </div>
   <div class="banner"></div>
   <div class="evansydre ydre flexcol">
-    <div class="evansindre indre flexcol">
+    <div class="evansindre indre">
       <img class="evans_effekt" src={evans_effekt.src} alt="" />
     </div>
   </div>
   <div class="ctaydre ydre flexcol">
-    <div class="ctaindre indre flexcol">
+    <div class="ctaindre indre">
       <img class="cta_effekt" src={cta_effekt.src} alt="" />
     </div>
   </div>
@@ -73,27 +73,31 @@ import cta_effekt from "../assets/cta_effekt.png";
     gap: 50px;
   }
   .ctaindre {
-    gap: 50px;
-    height: 12em;
-
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: min-content;
+    width: 100%;
   }
   .cta_effekt {
-    position: absolute;
-    top: 6%;
-    left: -1%;
+    grid-column: 1;
+    grid-row: 1;
     object-fit: cover;
   }
 
   /* Evans */
   .evansindre {
     position: relative;
-    height: 17em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: min-content;
+    width: 100%;
   }
   .evans_effekt {
-    position: absolute;
-    top: -1%;
-    left: 0%;
+    grid-column: 1;
+    grid-row: 1;
     object-fit: cover;
   }
   /* SoMe */

@@ -6,6 +6,8 @@ import trænercard_evan_lille from "../assets/trænercard_evan_lille.png";
 import trænercard_evan_stor from "../assets/trænercard_evan_stor.png";
 import trænercard_allan_lille from "../assets/trænercard_allan_lille.png";
 import trænercard_allan_stor from "../assets/trænercard_allan_stor.png";
+import trænercard_lucas_lille from "../assets/trænercard_lucas_lille.png";
+import trænercard_lucas_stor from "../assets/trænercard_lucas_stor.png";
 import Button from "../components/Button.astro";
 import venstre from "../assets/knap_venstre.svg";
 import højre from "../assets/knap_højre.svg";
@@ -29,8 +31,12 @@ import højre from "../assets/knap_højre.svg";
             src={trænercard_evan_lille.src}
             alt="Træner 1"
           />
-          <div class="active-img">
-            <img src={trænercard_evan_stor.src} alt="Træner 1" />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 1"
+          />
+          <div class="active-btn">
             <Button text="Bestil tid" link="#" />
           </div>
         </div>
@@ -40,8 +46,8 @@ import højre from "../assets/knap_højre.svg";
             src={trænercard_allan_lille.src}
             alt="Allan"
           />
-          <div class="active-img">
-            <img src={trænercard_allan_stor.src} alt="Allan" />
+          <img class="active-img" src={trænercard_allan_stor.src} alt="Allan" />
+          <div class="active-btn">
             <Button text="Bestil tid" link="#" />
           </div>
         </div>
@@ -51,8 +57,27 @@ import højre from "../assets/knap_højre.svg";
             src={trænercard_evan_lille.src}
             alt="Evans Ashira"
           />
-          <div class="active-img">
-            <img src={trænercard_evan_stor.src} alt="Evans Ashira" />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Evans Ashira"
+          />
+          <div class="active-btn">
+            <Button text="Bestil tid" link="#" />
+          </div>
+        </div>
+        <div class="trainer-card">
+          <img
+            class="default-img"
+            src={trænercard_lucas_lille.src}
+            alt="Lucas Ashira"
+          />
+          <img
+            class="active-img"
+            src={trænercard_lucas_stor.src}
+            alt="Lucas Ashira"
+          />
+          <div class="active-btn">
             <Button text="Bestil tid" link="#" />
           </div>
         </div>
@@ -60,20 +85,14 @@ import højre from "../assets/knap_højre.svg";
           <img
             class="default-img"
             src={trænercard_evan_lille.src}
-            alt="Træner 4"
-          />
-          <div class="active-img">
-            <img src={trænercard_evan_stor.src} alt="Træner 4" />
-            <Button text="Bestil tid" link="#" />
-          </div>
-        </div><div class="trainer-card">
-          <img
-            class="default-img"
-            src={trænercard_evan_lille.src}
             alt="Træner 5"
           />
-          <div class="active-img">
-            <img src={trænercard_evan_stor.src} alt="Træner 5" />
+          <img
+            class="active-img"
+            src={trænercard_evan_stor.src}
+            alt="Træner 5"
+          />
+          <div class="active-btn">
             <Button text="Bestil tid" link="#" />
           </div>
         </div>
@@ -111,7 +130,6 @@ import højre from "../assets/knap_højre.svg";
     /* border-left: 5px solid var(--color-primary); */
     /* border-right: 5px solid var(--color-primary); */
     border-radius: 15px;
-    max-height: 500px;
     height: 100%;
     flex: 1 1 0;
     overflow: hidden;
@@ -132,7 +150,7 @@ import højre from "../assets/knap_højre.svg";
     left: 0;
     top: 0;
     transition: transform 0.5s ease;
-    height: 100%;
+    height: calc(100%);
     width: 100%;
 
     align-items: center;
@@ -140,9 +158,9 @@ import højre from "../assets/knap_højre.svg";
   }
 
   .trainer-card {
-    height: 60%;
-    width: clamp(80px, 20%, 200px);
-    margin: 0 5px;
+    height: 100%;
+    width: auto;
+    padding: 70px 0;
     position: relative;
     /* transition: all 0.7s ease; */
     transform-origin: center;
@@ -150,18 +168,30 @@ import højre from "../assets/knap_højre.svg";
     opacity: 0.3;
   }
 
-  .trainer-card img {
+  .default-img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 503 / 720;
     object-fit: contain;
+  }
+  .active-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1006 / 720;
+    object-fit: contain;
+  }
+  .active-btn {
+    height: 50px;
   }
 
   .trainer-card.active {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: clamp(160px, 20%, 400px);
-    transform: scale(2);
+    /* width: clamp(160px, 20%, 400px); */
+    transform: scale(1.1);
     opacity: 1;
+    gap: 20px;
     z-index: 10;
   }
 
@@ -190,7 +220,8 @@ import højre from "../assets/knap_højre.svg";
     scale: 1.05;
   }
 
-  .trainer-card .active-img {
+  .trainer-card .active-img,
+  .active-btn {
     display: none;
   }
 
@@ -198,11 +229,11 @@ import højre from "../assets/knap_højre.svg";
     display: none;
   }
 
-  .trainer-card.active .active-img {
+  .trainer-card.active .active-img,
+  .active-btn {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
     align-items: center;
+    justify-content: center;
   }
 </style>
 
