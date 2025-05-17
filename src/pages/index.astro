@@ -19,11 +19,59 @@ import cta_effekt from "../assets/cta_effekt.png";
   <div class="evansydre ydre flexcol">
     <div class="evansindre indre">
       <img class="evans_effekt" src={evans_effekt.src} alt="" />
+      <div class="evans_indhold flexcol">
+        <h2>HVAD ER ASHIRA OURE BOXING CLUB?</h2>
+        <p>
+          Ashira Oure Boxing Club er stiftet af den tidligere professionelle
+          bokser og OL-deltager Evans Ashira. Med 29 sejre ud af 32 kampe
+          bringer han sin erfaring, disciplin og passion direkte ind i
+          træningslokalet. <br /><br />
+
+          Her handler det ikke kun om at slå – det handler om at udvikle sig
+          mentalt og fysisk. Klubben er et sted, hvor fællesskab, respekt og rå
+          træningskultur mødes. Uanset om du er motionist eller
+          turneringskæmper, bliver du mødt som en del af noget ægte.
+        </p>
+        <p class="evansquote">
+          <i
+            >“You don’t just train your body in this ring. You train your mind.”</i
+          ><br /> – Evans <b>“The African Warrior”</b> Ashira
+        </p>
+        <Button text="Læs mere om os" link="#" />
+      </div>
     </div>
   </div>
   <div class="ctaydre ydre flexcol">
     <div class="ctaindre indre">
       <img class="cta_effekt" src={cta_effekt.src} alt="" />
+      <div class="cta_indhold flexcol">
+        <h2>Vælg imellem vores løsninger</h2>
+        <div class="cta_indhold_block">
+          <h3>1:1 Personlig Træning</h3>
+          <div class="cta_indhold_block1">
+            <p>
+              Personligt tilpasset træning med fokus på fedttab og
+              muskelopbygning – skræddersyet til din krop og behov. Se priserne
+              for vores trænere, vælg din favorit og forudbook dine timer – vi
+              kontakter dig derefter.
+            </p>
+            <Button text="Gå til 1:1 personlig træning" link="#" />
+          </div>
+        </div>
+        <div class="cta_indhold_block">
+          <h3>Planer & Medlemskaber</h3>
+          <div class="cta_indhold_block1">
+            <p>
+              Målrettede træningsforløb, der kombinerer effektiv træning,
+              kostvejledning og mental styrke, så du kan mærke resultater både
+              fysisk og mentalt. Uanset om du vil i dit livs form eller træne
+              som en champ, får du struktureret coaching, faste holdtider og
+              stærkt fællesskab.
+            </p>
+            <Button text="Gå til Planer og medlemskaber" link="#" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="3dmap ydre flexcol"></div>
@@ -36,78 +84,138 @@ import cta_effekt from "../assets/cta_effekt.png";
       </div>
     </div>
   </div>
-</Layout>
 
-<style>
-  /* Hero */
-  .heroydre {
-    width: 100%;
-    height: 90vh;
-    img {
-      height: 100%;
+  <style>
+    /* Hero */
+    .heroydre {
       width: 100%;
+      height: 90vh;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .heroydre {
+        height: 50vh;
+      }
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      height: 10vh;
+      background-image: url("/champions_banner.png");
+      background-repeat: repeat-x;
+      background-size: auto 100%; /* Gør billedet 100% højden af .banner */
+      background-position: top;
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Evans */
+    .evansindre {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      height: min-content;
+      width: 100%;
+    }
+    .evans_effekt {
+      grid-column: 1;
+      grid-row: 1;
       object-fit: cover;
     }
-  }
+    .evans_indhold {
+      grid-column: 1;
+      grid-row: 1;
+      position: relative;
+      top: 14%;
+      left: 23%;
+      max-width: 33%;
 
-  @media (max-width: 768px) {
-    .heroydre {
-      height: 50vh;
+      h2 {
+        color: var(--color-white);
+        margin-bottom: 15%;
+        width: max-content;
+      }
+      p {
+        color: var(--color-white);
+      }
+      .evansquote {
+        max-width: 74%;
+      }
     }
-  }
 
-  /* Banner */
-  .banner {
-    width: 100%;
-    height: 10vh;
-    background-image: url("/champions_banner.png");
-    background-repeat: repeat-x;
-    background-size: auto 100%; /* Gør billedet 100% højden af .banner */
-    background-position: top;
-    z-index: 10;
-    position: relative;
-  }
-
-  /* CTA */
-  .ctaydre {
-    gap: 50px;
-  }
-  .ctaindre {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: min-content;
-    width: 100%;
-  }
-  .cta_effekt {
-    grid-column: 1;
-    grid-row: 1;
-    object-fit: cover;
-  }
-
-  /* Evans */
-  .evansindre {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: min-content;
-    width: 100%;
-  }
-  .evans_effekt {
-    grid-column: 1;
-    grid-row: 1;
-    object-fit: cover;
-  }
-  /* SoMe */
-  .SoMelinks {
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    img {
-      width: 60px;
-      height: 60px;
+    /* CTA */
+    .ctaydre {
+      gap: 50px;
+      margin-top: -50px;
     }
-  }
-</style>
+    .ctaindre {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      height: min-content;
+      width: 100%;
+    }
+    .cta_effekt {
+      grid-column: 1;
+      grid-row: 1;
+      object-fit: cover;
+      scale: 0.8;
+      position: relative;
+      top: -12%;
+      left: -26%;
+    }
+
+    .cta_indhold {
+      grid-column: 1;
+      grid-row: 1;
+      position: relative;
+      top: 11%;
+      left: 50%;
+      max-width: 33%;
+      gap: 40px;
+      align-items: center;
+      h2 {
+        color: var(--color-white);
+        width: max-content;
+      }
+      p,
+      h3 {
+        color: var(--color-white);
+      }
+      .cta_indhold_block {
+        position: relative;
+        h3 {
+          position: absolute;
+          top: -20%;
+          left: 17%;
+          padding: 5px;
+          background-color: var(--color-background);
+        }
+        .cta_indhold_block1 {
+          background: #212529;
+          border: 3px solid white;
+          padding: 10px;
+        }
+      }
+    }
+
+    /* SoMe */
+    .SoMelinks {
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</Layout>
