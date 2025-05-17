@@ -125,7 +125,9 @@ import højre from "../assets/knap_højre.svg";
     }
   }
   .cards-container {
+    display: flex;
     max-width: 1100px;
+    min-height: 300px;
     position: relative;
     /* border-left: 5px solid var(--color-primary); */
     /* border-right: 5px solid var(--color-primary); */
@@ -133,7 +135,6 @@ import højre from "../assets/knap_højre.svg";
     height: 100%;
     flex: 1 1 0;
     overflow: hidden;
-
     /* Add the portal fade effect with mask gradients */
     mask-image: linear-gradient(
       to right,
