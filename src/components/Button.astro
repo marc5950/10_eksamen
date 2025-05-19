@@ -14,14 +14,25 @@ const { link, text } = Astro.props;
     padding: 5px 20px;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    background: var(--color-white);
-    border: none;
-    box-shadow: 3px 3px 0px 0px #bf1f26;
+    gap: 0.625rem;
+    border: 1px solid #000;
+    background: var(--White, #f8f9fa);
+    box-shadow: 2px 2px 0px 0px rgba(255, 255, 255, 0.25);
     transition: all 0.2s ease;
     width: max-content;
     a {
       font-size: clamp(1em, 1.3vw, 1.3em);
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+      color: var(--Black, #0f0f0f);
+      text-align: center;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.025rem;
+      text-transform: uppercase;
     }
   }
 

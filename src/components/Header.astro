@@ -2,9 +2,58 @@
 import "../styles/global.css";
 ---
 
-<div>
-  <a href="/">hjem</a>
-  <a href="/trænerne">trænerne</a>
-  <a href="/holdtræning">holdtræning</a>
-  <a href="/kontakt">kontakt</a>
+<div class="header">
+  <img class="headerbilede" src="/src/assets/header.png" alt="" />
+  <div class="link">
+    <a href="/trænerne">Trænere</a>
+    <a href="/holdtræning">Om os</a>
+    <a href="/"><img src="/src/assets/logo.svg" alt="" /></a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/holdtræning">Book nu</a>
+  </div>
 </div>
+
+<style>
+  .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .headerbilede {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  a {
+    color: #efefef;
+    font-family: "Dharma Gothic M";
+    font-size: 2.3125rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  .link {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 17rem;
+    z-index: 10000;
+    img {
+      width: 11rem;
+      height: 5rem;
+    }
+  }
+</style>
