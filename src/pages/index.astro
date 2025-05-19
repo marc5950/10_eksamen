@@ -85,9 +85,9 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
   <div class="SoMeydre ydre flexcol">
     <img class="bg_footerhvid" src={bg_footerhvid.src} alt="" />
 
-    <div class="SoMeindre indre">
+    <div class="SoMeindre indre flexcol">
       <img class="newsbg" src={newsbg.src} alt="" />
-      <div class="SoMeindhold">
+      <div class="SoMeindhold flexcol">
         <div class="SoMeposts flex">
           <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
           <script src="https://static.elfsight.com/platform/platform.js" async
@@ -130,6 +130,15 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
       background-position: top;
       z-index: 10;
       position: relative;
+      animation: banner 10s linear infinite;
+    }
+    @keyframes banner {
+      0% {
+        background-position: 100% 0%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
     }
 
     @media (max-width: 768px) {
@@ -242,8 +251,9 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
     }
     .SoMeindre {
       justify-items: center;
-      max-width: 1440px;
-      height: 2000px;
+      position: relative;
+      height: max-content;
+      overflow: hidden;
       display: grid;
       margin-top: -8%;
       grid-template-columns: 1fr;
@@ -257,6 +267,7 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
       );
     }
     .newsbg {
+      position: absolute;
       grid-column: 1;
       grid-row: 1;
     }
@@ -264,15 +275,17 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
     .SoMeindhold {
       grid-column: 1;
       grid-row: 1;
-      display: flex;
-      flex-direction: column;
+      align-items: center;
       max-width: 1020px;
+      width: 100%;
       margin-top: 38%;
+      margin-bottom: 20%;
       height: max-content;
+      z-index: 2;
     }
     .SoMeposts {
       gap: 20px;
-      width: 80vw;
+      width: 80%;
       padding: 0 50px;
       height: fit-content;
       z-index: 20;
