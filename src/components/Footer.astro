@@ -1,16 +1,33 @@
 ---
 import "../styles/global.css";
 import effekt1 from "../assets/bg_footerhvid.png";
+import footerfoto from "../assets/footerfoto.png";
+import logo from "../assets/logo.svg";
+import iglogo from "../assets/iglogo.svg";
+import fblogo from "../assets/fblogo.svg";
 ---
 
 <div class="footerboks flexcol">
   <img class="effekt1" src={effekt1.src} alt="" />
   <div class="footerydre">
-    <div class="footerindre">
-      <a href="/">hjem</a>
-      <a href="/trænerne">trænerne</a>
-      <a href="/holdtræning">holdtræning</a>
-      <a href="/kontakt">kontakt</a>
+    <img class="footerfoto" src={footerfoto.src} alt="" />
+    <div class="footerindre flex">
+      <div class="header">
+        <h2>Ashira Oure - Boxing Club, Youth Academy, Training & Lifestyle</h2>
+      </div>
+      <div class="some flexcol">
+        <img src={logo.src} alt="" />
+        <div class="some1 flex">
+          <img src={iglogo.src} alt="" />
+          <img src={fblogo.src} alt="" />
+        </div>
+      </div>
+      <div class="nav flexcol">
+        <a href="/">hjem</a>
+        <a href="/trænerne">trænerne</a>
+        <a href="/holdtræning">holdtræning</a>
+        <a href="/kontakt">kontakt</a>
+      </div>
     </div>
   </div>
 </div>
@@ -24,5 +41,54 @@ import effekt1 from "../assets/bg_footerhvid.png";
     background-color: var(--color-primary);
     padding: 8% 20px 20px;
     margin-top: -6%;
+    position: relative;
+  }
+  .footerindre {
+    position: relative;
+    justify-content: flex-end;
+    gap: 50px;
+    max-width: 1100px;
+    z-index: 30;
+  }
+  .footerfoto {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 27%;
+    object-fit: cover;
+    z-index: 15;
+    opacity: 0.9;
+  }
+  .header {
+    position: relative;
+    h2 {
+      color: var(--color-white);
+    }
+  }
+  .some {
+    width: 100px;
+    gap: 10px;
+    .some1 img {
+      width: 50px;
+      height: 50px;
+      transition: all 0.3s ease;
+    }
+    .some1 img:hover {
+      scale: 1.1;
+    }
+    .some1 {
+      justify-content: space-between;
+    }
+  }
+  .nav {
+    gap: 10px;
+    text-align: end;
+    a {
+      color: var(--color-white);
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      scale: 1.1;
+    }
   }
 </style>
