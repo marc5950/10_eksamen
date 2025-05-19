@@ -8,6 +8,8 @@ import linkedinlogo from "../assets/linkedinlogo.svg";
 import fs_hero from "../assets/fs_hero.png";
 import evans_effekt from "../assets/evans_effekt.png";
 import cta_effekt from "../assets/cta_effekt.png";
+import newsbg from "../assets/newsbg.png";
+import bg_footerhvid from "../assets/bg_footerhvid.png";
 ---
 
 <Layout title="Ashire Oure Boxing Club">
@@ -81,11 +83,27 @@ import cta_effekt from "../assets/cta_effekt.png";
   </div>
   <div class="3dmap ydre flexcol"></div>
   <div class="SoMeydre ydre flexcol">
-    <div class="SoMeindre indre flexcol">
-      <div class="SoMelinks flex">
-        <img src={iglogo.src} alt="link til instagram" />
-        <img src={fblogo.src} alt="link til facebook" />
-        <img src={linkedinlogo.src} alt="link til linkedin" />
+    <img class="bg_footerhvid" src={bg_footerhvid.src} alt="" />
+
+    <div class="SoMeindre indre">
+      <img class="newsbg" src={newsbg.src} alt="" />
+      <div class="SoMeindhold">
+        <div class="SoMeposts flex">
+          <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+          <script src="https://static.elfsight.com/platform/platform.js" async
+          ></script>
+          <div
+            class="elfsight-app-d7396a53-6b67-4a52-97b5-6b3b4822989c"
+            data-elfsight-app-lazy
+          >
+          </div>
+        </div>
+        <div class="SoMelinks flex">
+          <a href="https://www.instagram.com/keaprojektboxing/"
+            ><img src={iglogo.src} alt="link til instagram" /></a
+          >
+          <a href="#"><img src={fblogo.src} alt="link til facebook" /></a>
+        </div>
       </div>
     </div>
   </div>
@@ -215,13 +233,62 @@ import cta_effekt from "../assets/cta_effekt.png";
     }
 
     /* SoMe */
+    .SoMeydre {
+      margin-top: -150px;
+    }
+    .bg_footerhvid {
+      max-height: 200px;
+      z-index: 10;
+    }
+    .SoMeindre {
+      justify-items: center;
+      max-width: 1440px;
+      height: 2000px;
+      display: grid;
+      margin-top: -8%;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgb(0, 0, 0) 8%,
+        rgb(0, 0, 0) 92%,
+        transparent 100%
+      );
+    }
+    .newsbg {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .SoMeindhold {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 1020px;
+      margin-top: 38%;
+      height: max-content;
+    }
+    .SoMeposts {
+      gap: 20px;
+      width: 80vw;
+      padding: 0 50px;
+      height: fit-content;
+      z-index: 20;
+    }
     .SoMelinks {
       gap: 20px;
       align-items: center;
       justify-content: center;
+      margin-top: 10%;
       img {
         width: 60px;
         height: 60px;
+        transition: all 0.3s ease;
+      }
+      img:hover {
+        scale: 1.1;
       }
     }
   </style>
