@@ -1,13 +1,15 @@
 ---
 import "../styles/global.css";
+import headerbillede from "../assets/header.png";
+import logo from "../assets/logo.svg";
 ---
 
 <div class="header">
-  <img class="headerbilede" src="/src/assets/header.png" alt="" />
+  <img class="headerbilede" src={headerbillede.src} alt="" />
   <div class="link">
     <a href="/trænerne">Trænere</a>
     <a href="/holdtræning">Om os</a>
-    <a href="/"><img src="/src/assets/logo.svg" alt="" /></a>
+    <a href="/"><img src={logo.src} alt="" /></a>
     <a href="/kontakt">Kontakt</a>
     <a href="/holdtræning">Book nu</a>
   </div>
