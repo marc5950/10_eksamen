@@ -339,7 +339,7 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
               </div>
             </blockquote>
             <blockquote
-              class="instagram-media"
+              class="instagram-media igmedia3"
               data-instgrm-permalink="https://www.instagram.com/p/DJzcijFosG_/?utm_source=ig_embed&utm_campaign=loading"
               data-instgrm-version="14"
               style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
@@ -641,7 +641,7 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
         align-items: center;
         max-width: 1020px;
         width: 100%;
-        margin-top: 38%;
+        margin-top: 40%;
         margin-bottom: 20%;
         height: max-content;
         z-index: 2;
@@ -651,19 +651,30 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
         gap: 30px;
         width: 100%;
         padding: 0 130px;
-        height: 20.5rem;
+        height: min-content;
 
         iframe {
           min-width: 10px !important;
           width: 100% !important;
-          height: 100%;
+        }
+
+        @media (max-width: 720px) {
+          height: 25vh;
+          padding: 0 50px;
+
+          .igmedia3 {
+            display: none !important;
+          }
+          iframe {
+            height: 100% !important;
+          }
         }
       }
       .SoMelinks {
         gap: 20px;
         align-items: center;
         justify-content: center;
-        margin-top: 12%;
+        margin-top: 17%;
         img {
           width: 60px;
           height: 60px;
