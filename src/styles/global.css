@@ -20,7 +20,7 @@ img {
 html {
   background-color: var(--color-background);
   scroll-behavior: smooth;
-  cursor: url("/pil1.png"), default;
+  cursor: url("/pil1.svg"), default;
 }
 
 h1,
@@ -63,13 +63,13 @@ h2,
 h3,
 h4,
 p {
-  cursor: url("/pil1.png"), default;
+  cursor: url("/pil1.svg"), default;
 }
 a,
 button,
 li,
 iframe {
-  cursor: url("/pil2.png"), pointer;
+  cursor: url("/pil2.svg"), pointer;
 }
 
 .flex {
