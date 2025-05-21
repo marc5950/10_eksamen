@@ -16,17 +16,18 @@ import fblogo from "../assets/fblogo.svg";
         <h2>Ashira Oure - Boxing Club, Youth Academy, Training & Lifestyle</h2>
       </div>
       <div class="some flexcol">
-        <img src={logosort.src} alt="" />
+        <a href="/"><img src={logosort.src} alt="" /></a>
+
         <div class="some1 flex">
-          <img src={iglogo.src} alt="" />
-          <img src={fblogo.src} alt="" />
+          <a href="/"><img src={iglogo.src} alt="" /></a>
+          <a href="/"><img src={fblogo.src} alt="" /></a>
         </div>
       </div>
       <div class="nav flexcol">
-        <a href="/">hjem</a>
-        <a href="/trænerne">trænerne</a>
-        <a href="/holdtræning">holdtræning</a>
-        <a href="/kontakt">kontakt</a>
+        <a href="/trænerne">TRÆNERE</a>
+        <a href="/om_os">OM OS</a>
+        <a href="/holdtræning">BOOK TRÆNING</a>
+        <a href="/kontakt">KONTAKT</a>
       </div>
     </div>
   </div>
@@ -72,12 +73,15 @@ import fblogo from "../assets/fblogo.svg";
   .some {
     width: 100px;
     gap: 10px;
+
     .some1 img {
       width: 50px;
       height: 50px;
+    }
+    a {
       transition: all 0.3s ease;
     }
-    .some1 img:hover {
+    a:hover {
       scale: 1.1;
     }
     .some1 {

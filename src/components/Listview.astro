@@ -1,0 +1,124 @@
+---
+// Definer props til komponenten
+const { hold } = Astro.props;
+import Button from "./Button.astro";
+---
+
+<div class="hold-card">
+  <div class="hold-grid">
+    <img
+      class="hold-img"
+      src={hold.img}
+      alt={hold.titel}
+      loading="lazy"
+      width="100%"
+      height="auto"
+    />
+    <h3 class="hold-header">{hold.titel} - {hold.type}</h3>
+
+    <div class="hold-tid">
+      <p>
+        <b>Skema</b>
+      </p><p set:html={hold.schedule} />
+    </div>
+    <p class="hold-beskrivelse">{hold.desc_short}</p>
+
+    <div class="cta">
+      <div class="hold-pris">
+        <p><b>Pris for 10 uger:</b></p>
+        <p>{hold.price} kr.</p>
+      </div>
+
+      <Button
+        link={`/hold/${hold.slug}`}
+        text="Meld dig ind"
+        class="hold-btn"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  p {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+  }
+  .hold-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: var(--color-white);
+  }
+  .hold-card:hover {
+    scale: 1.01;
+  }
+  .hold-grid {
+    border: solid 3px var(--color-black);
+    margin: 1.5rem;
+    overflow: hidden;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 35% 1fr 1fr;
+    grid-template-rows: 70px 100px 100px;
+    height: min-content;
+  }
+  .hold-img {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hold-header {
+    grid-column: 2 / 4;
+    grid-row: 1 / 1;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    text-align: center;
+  }
+
+  .hold-tid {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    margin: 10px 0 10px 10px;
+    padding-right: 10px;
+    border-top: solid 1px var(--color-black);
+    p {
+      color: var(--color-black);
+    }
+  }
+
+  .hold-beskrivelse {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+    color: var(--color-black);
+    margin: 10px;
+  }
+  .cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    margin: 10px 10px 10px 0;
+    padding-left: 10px;
+    border-top: solid 1px var(--color-black);
+    border-left: solid 1px var(--color-black);
+  }
+
+  .hold-pris {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    p {
+      color: var(--color-black);
+    }
+  }
+
+  .hold-btn {
+  }
+</style>

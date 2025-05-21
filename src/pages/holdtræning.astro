@@ -1,8 +1,61 @@
 ---
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
+import Listview from "../components/Listview.astro";
+
+const url = "https://lmpnyqlifuywoupnqsea.supabase.co/rest/v1/Hold?select=*";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtcG55cWxpZnV5d291cG5xc2VhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzgxOTEwMCwiZXhwIjoyMDYzMzk1MTAwfQ.9OzUYyGROvB8tUL6mhqGD37tCYoxlJXqTLh2WQLHEck";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: key,
+    Authorization: `Bearer ${key}`,
+    "Content-Type": "application/json",
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data);
 ---
 
 <Layout title="Ashire Oure Boxing Club">
-  <h1>Hej</h1>
+  <div class="bookydre ydre flex">
+    <div class="bookindre indre flexcol">
+      <div class="text">
+        <h1>For alle - uanset dit udgangspunkt</h1>
+        <p>
+          Hos Ashira Oure Boxing Club er dørene åbne for alle. Uanset om du
+          drømmer om at blive den næste Mike Tyson, søger en meningsfuld
+          fritidsaktivitet, eller ønsker at komme i form med ægte formål – så er
+          du velkommen her. Vi tror på, at boksekunsten rummer noget tidløst:
+          disciplin, karakter og kampgejst, som styrker både krop og sind. Du
+          behøver ikke have erfaring – kun viljen til at møde dig selv, én
+          træning ad gangen. <br /><br />Uanset dit mål, din erfaring eller din
+          hverdag, har vi et tilbud, der passer til dig. Hos Ashira Oure Boxing
+          Club møder vi dig dér, hvor du er – og hjælper dig med at vokse
+          derfra. Herunder finder du vores forskellige løsninger, så du kan
+          vælge det træningsforløb, der matcher dine ambitioner og behov.
+        </p>
+      </div>
+      <div class="holdtræningerydre">
+        <h2>Holdtræninger</h2>
+        <div class="hold">
+          {data.map((hold) => <Listview hold={hold} />)}
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .bookydre {
+    padding: 200px 0;
+    margin-top: -6%;
+    position: relative;
+    justify-content: center;
+  }
+  .bookindre {
+    padding: 10px;
+  }
+</style>

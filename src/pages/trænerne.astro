@@ -11,10 +11,12 @@ import trænercard_lucas_stor from "../assets/trænercard_lucas_stor.png";
 import Button from "../components/Button.astro";
 import venstre from "../assets/knap_venstre.svg";
 import højre from "../assets/knap_højre.svg";
+import bg_trænerne from "../assets/bg_trænerne.png";
 ---
 
 <Layout title="Mød trænerne">
   <div class="ydre flexcol">
+    <img class="bgeffekt" src={bg_trænerne.src} alt="" />
     <div class="textinfo flexcol">
       <h1>Step into the World of Elite Boxing</h1>
       <h2>
@@ -116,6 +118,13 @@ import højre from "../assets/knap_højre.svg";
     gap: 20px;
     margin-top: 5rem;
     margin-bottom: 5%;
+  }
+
+  .bgeffekt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw;
   }
 
   .textinfo {

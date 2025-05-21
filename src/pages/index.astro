@@ -79,20 +79,42 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
   <div class="evansydremobil">
     <img class="indexbgmobil" src={indexbgmobil.src} alt="" />
 
-    <div class="evans_indholdmobil">
-      <h2>Evans Indhold</h2>
-      <p>
-        Evans Indhold er en platform, hvor vi deler vores passion for boksning
-        og træning. Her finder du videoer, tips og tricks til at forbedre din
-        teknik og styrke.
+    <div class="evans_indholdmobil flexcol">
+      <h2>HVAD ER ASHIRA OURE BOXING CLUB?</h2>
+      <p class="evansquote">
+        <i
+          >“You don’t just train your body in this ring. You train your mind.”</i
+        ><br /> – Evans <b>“The African Warrior”</b> Ashira
       </p>
+      <Button text="Læs mere om os" link="#" />
     </div>
-    <div class="cta_indholdmobil">
-      <h2>CTA Indhold</h2>
-      <p>
-        CTA Indhold er din guide til at finde de bedste træningsprogrammer og
-        kostplaner. Vi hjælper dig med at nå dine mål.
-      </p>
+    <div class="cta_indholdmobil flexcol">
+      <h2>Vælg imellem vores løsninger</h2>
+      <div class="cta_indhold_block">
+        <h3>1:1 Personlig Træning</h3>
+        <div class="cta_indhold_block1">
+          <p>
+            Personligt tilpasset træning med fokus på fedttab og muskelopbygning
+            – skræddersyet til din krop og behov. Se priserne for vores trænere,
+            vælg din favorit og forudbook dine timer – vi kontakter dig
+            derefter.
+          </p>
+          <Button text="Gå til 1:1 personlig træning" link="#" />
+        </div>
+      </div>
+      <div class="cta_indhold_block">
+        <h3>Planer & Medlemskaber</h3>
+        <div class="cta_indhold_block1">
+          <p>
+            Målrettede træningsforløb, der kombinerer effektiv træning,
+            kostvejledning og mental styrke, så du kan mærke resultater både
+            fysisk og mentalt. Uanset om du vil i dit livs form eller træne som
+            en champ, får du struktureret coaching, faste holdtider og stærkt
+            fællesskab.
+          </p>
+          <Button text="Gå til Planer og medlemskaber" link="#" />
+        </div>
+      </div>
     </div>
   </div>
   <div class="SoMeydre ydre flexcol">
@@ -584,8 +606,8 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    height: 37%;
-    margin: -6% 0 130px 0;
+    height: min-content;
+    margin: -6% 0 110px 0;
     justify-items: center;
     overflow: hidden;
 
@@ -594,22 +616,50 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
     }
   }
   .indexbgmobil {
-    width: 140%;
-    margin-left: -87px;
+    width: 150%;
+    margin-left: -13%;
     grid-column: 1;
     grid-row: 1/3;
   }
   .evans_indholdmobil {
     margin-top: 6%;
+    padding: 0 5px;
     grid-column: 1;
     grid-row: 1/1;
     position: relative;
+    width: 320px;
+    h2 {
+      color: var(--color-white);
+      width: max-content;
+    }
+    p {
+      color: var(--color-white);
+    }
+    .evansquote {
+      max-width: 50%;
+      margin-bottom: 5vw;
+    }
   }
 
   .cta_indholdmobil {
+    align-items: center;
+    gap: 7%;
     grid-column: 1;
     grid-row: 2/2;
     position: relative;
+    top: -20%;
+    right: -17%;
+    width: 320px;
+    padding: 0 5px;
+    h2 {
+      color: var(--color-white);
+      width: max-content;
+    }
+    p,
+    h3 {
+      color: var(--color-white);
+      top: -22px !important;
+    }
   }
   /* CTA */
 
@@ -630,32 +680,33 @@ import bg_footerhvid from "../assets/bg_footerhvid.png";
     h3 {
       color: var(--color-white);
     }
-    .cta_indhold_block {
-      position: relative;
-      h3 {
-        position: absolute;
-        top: -26px;
-        left: 17%;
-        padding: 10px;
-        background: linear-gradient(
-          180deg,
-          #181818 0%,
-          #181818 50%,
-          rgba(0, 0, 0, 0) 51%
-        );
-      }
-      .cta_indhold_block1 {
-        background: #212529;
-        border: 3px solid white;
-        padding: 10px;
-      }
-    }
+
     @media (max-width: 1010px) {
       .cta_indhold_block {
         h3 {
           top: -24px;
         }
       }
+    }
+  }
+  .cta_indhold_block {
+    position: relative;
+    h3 {
+      position: absolute;
+      top: -26px;
+      left: 17%;
+      padding: 10px;
+      background: linear-gradient(
+        180deg,
+        #181818 0%,
+        #181818 50%,
+        rgba(0, 0, 0, 0) 51%
+      );
+    }
+    .cta_indhold_block1 {
+      background: #212529;
+      border: 3px solid white;
+      padding: 10px;
     }
   }
 

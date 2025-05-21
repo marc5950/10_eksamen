@@ -31,13 +31,13 @@ h5,
 h6,
 li {
   font-family: "dharma-gothic-e", sans-serif;
-  color: var(--color-black);
+  color: var(--color-white);
 }
 a {
   font-family: "dharma-gothic-e";
   font-size: clampclamp(1rem, 2vw, 1.5rem);
   text-decoration: none;
-  color: var(--color-black);
+  color: var(--color-white);
 }
 
 h1 {
@@ -53,10 +53,10 @@ h3 {
   margin: 0.5rem 0;
 }
 p {
-  font-size: clamp(0.5rem, 1vw, 0.8rem);
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
   margin: 0.5rem 0;
   font-family: "lato", sans-serif;
-  color: var(--color-black);
+  color: var(--color-white);
 }
 h1,
 h2,
