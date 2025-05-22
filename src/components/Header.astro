@@ -9,7 +9,7 @@ import logo from "../assets/logo.svg";
   <div class="link">
     <a href="/trænerne">Trænere</a>
     <a href="/holdtræning">Om os</a>
-    <a href="/"><img src={logo.src} alt="" /></a>
+    <a class="" href="/"><img src={logo.src} alt="" /></a>
     <a href="/kontakt">Kontakt</a>
     <a href="/holdtræning">Book nu</a>
   </div>
@@ -51,11 +51,29 @@ import logo from "../assets/logo.svg";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0rem 17rem;
+    padding: 0rem 13rem;
     z-index: 10000;
-    img {
-      width: 11rem;
-      height: 5rem;
+    a {
+      align-items: center;
+      img {
+        width: 8rem;
+        height: 6rem;
+        padding-top: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .link {
+      display: none;
+      a {
+        align-items: center;
+        img {
+          width: 8rem;
+          height: 6rem;
+          padding-top: 5px;
+        }
+      }
     }
   }
 </style>
