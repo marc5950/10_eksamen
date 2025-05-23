@@ -7,7 +7,7 @@ import omos from "../assets/om-os.jpg";
   <div class="hero">
     <video autoplay muted loop playsinline class="hero-video">
       <source
-        src="https://mwmedier.dk/keammd/2sem/10_eksamen/herofilm.mp4"
+        src="https://mwmedier.dk/keammd/2sem/10_eksamen/Lucas_video.mp4#t=10,20"
         type="video/mp4"
       />
     </video>
@@ -35,6 +35,12 @@ import omos from "../assets/om-os.jpg";
         </div>
         <img src={omos.src} alt="" />
       </div>
+
+      <video
+        class="video"
+        controls
+        src="https://mwmedier.dk/keammd/2sem/10_eksamen/Lucas_video.mp4"
+      ></video>
     </div>
     <div class="find-os flexcol">
       <h2>Find os – og få et kig indenfor</h2>
@@ -94,6 +100,12 @@ import omos from "../assets/om-os.jpg";
     .banner {
       height: calc(5vh + 3px);
     }
+  }
+
+  .video {
+    margin: 50px 0 0;
+    width: 100vw;
+    aspect-ratio: 16/9;
   }
 
   .om-os-ydre {
