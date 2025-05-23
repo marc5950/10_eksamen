@@ -22,7 +22,7 @@ const holdtræning = data.filter((hold) => hold.type === "HOLDTRÆNING");
 const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
 ---
 
-<Layout title="Ashire Oure Boxing Club">
+<Layout title="Book nu">
   <div class="bookydre ydre flex">
     <div class="bookindre indre flexcol">
       <div class="text flexcol">
@@ -60,17 +60,14 @@ const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
     padding: 200px 0;
     margin-top: -6vh;
     position: relative;
-    justify-content: center;
   }
   .bookindre {
     padding: 10px;
   }
 
   .text {
-    padding: 0 20px 100px;
-    max-width: 60ch;
-    margin: auto;
-    text-align: center;
+    padding: 0 10px 100px;
+    max-width: 70ch;
   }
 
   .hold {
@@ -84,5 +81,8 @@ const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
     text-align: center;
     margin-bottom: 30px;
     font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .holdtræningerydre {
+    margin: 10px;
   }
 </style>

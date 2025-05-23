@@ -32,6 +32,7 @@ import Button from "./Button.astro";
       <Button
         link={`/hold/${hold.slug}`}
         text="Meld dig ind"
+        cardknap="cardknap"
         class="hold-btn"
       />
     </div>
@@ -49,9 +50,7 @@ import Button from "./Button.astro";
     transition: all 0.3s ease;
     background-color: var(--color-white);
   }
-  .hold-card:hover {
-    scale: 1.01;
-  }
+
   .hold-grid {
     border: solid 3px var(--color-black);
     margin: 1.5rem;
