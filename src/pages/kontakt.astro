@@ -1,8 +1,145 @@
 ---
 //@ts-nocheck
 import Layout from "../layouts/Layout.astro";
+import logo from "../assets/logo.svg";
 ---
 
 <Layout title="Kontakt AOBC">
-  <h1>Hej</h1>
+  <div class="kontakt-container">
+    <form class="kontakt-form">
+      <div>
+        <label for="navn">Navn*</label>
+        <input
+          type="text"
+          id="navn"
+          name="navn"
+          placeholder="Dit navn"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">E-mail*</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Din e-mail"
+          required
+        />
+      </div>
+      <div>
+        <label for="besked">Besked*</label>
+        <textarea id="besked" name="besked" placeholder="Din besked..." required
+        ></textarea>
+      </div>
+      <!-- Tilføj evt. en submit-knap her -->
+    </form>
+    <div class="kontakt-info">
+      <div>
+        <h3>RING TIL OS</h3>
+        <p>
+          Har du spørgsmål om træning, hold eller prøvetime?<br />
+          Du er altid velkommen til at ringe — vi står klar til at hjælpe dig.<br
+          />
+          Tlf.: [Indsæt nummer]
+        </p>
+      </div>
+      <div>
+        <h3>SKRIV TIL OS</h3>
+        <p>
+          Vil du høre mere om introhold, firmatræning eller samarbejde?<br />
+          Send os en mail — vi svarer hurtigst muligt.<br />
+          info@ashiraboxing.dk
+        </p>
+      </div>
+      <div>
+        <h3>BESØG OS</h3>
+        <p>
+          Kom forbi og mærk stemningen i klubben.<br />
+          Vi holder til i Wellcome Fitness i Hellerup.<br />
+          Callisensvej 14, 2900 Hellerup<br />
+          <br />
+
+          Ashira Oure Boxing Club<br />
+          v/ Evans Ashira
+        </p>
+      </div>
+      <img
+        src={logo.src}
+        alt="Ashira Boxing Oure Club logo"
+        class="kontakt-logo"
+      />
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .kontakt-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 3rem 10px;
+    margin: 15vh 0;
+    color: var(--color-white);
+  }
+  .kontakt-form {
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .kontakt-form label {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .kontakt-form input,
+  .kontakt-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: #fff9ed;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    color: #181716;
+  }
+  .kontakt-form textarea {
+    min-height: 120px;
+  }
+  .kontakt-info {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    color: #fff9ed;
+  }
+  .kontakt-logo {
+    margin-top: 3rem;
+    width: 260px;
+  }
+  @media (max-width: 600px) {
+    .kontakt-container {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      max-width: 350px;
+      margin: 15vh auto !important;
+      align-items: center;
+    }
+    .kontakt-logo {
+      width: 180px;
+    }
+    .kontakt-info {
+      div {
+        width: 100%;
+      }
+      align-items: center;
+    }
+  }
+</style>
