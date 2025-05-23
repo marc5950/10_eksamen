@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import omos from "../assets/om-os.jpg";
 ---
 
 <Layout title="Ashire Oure Boxing Club">
@@ -15,8 +16,8 @@ import Layout from "../layouts/Layout.astro";
   <div class="om-os-ydre flexcol">
     <div class="om-os flexcol">
       <h1>Hvem er vi?</h1>
-      <div class="flex">
-        <div class="flexcol">
+      <div class="om-os-indre flex">
+        <div class="text flexcol">
           <h2>
             Ashira Oure Boxing Club er skabt på erfaring, passion og en
             urokkelig vindermentalitet.
@@ -26,16 +27,16 @@ import Layout from "../layouts/Layout.astro";
             Ashira – en atlet med 29 sejre ud af 32 kampe og en karriere, der
             har ført ham til verdens største bokseringe. I dag deler han sin
             erfaring, disciplin og kærlighed til sporten med næste generation.
-            Klubben er dog mere end bare et sted at træne. Sammen med sine tre
-            sønner driver Evans dagligdagen med fokus på moderne træning,
-            personlig udvikling og stærkt fællesskab. Her føres arven videre –
-            både i ringen og i hjertet.
+            <br /><br />
+            Klubben er dog mere end bare et sted at træne. Sammen med sine tre sønner
+            driver Evans dagligdagen med fokus på moderne træning, personlig udvikling
+            og stærkt fællesskab. Her føres arven videre – både i ringen og i hjertet.
           </p>
         </div>
-        <img src="" alt="" />
+        <img src={omos.src} alt="" />
       </div>
     </div>
-    <div class="find-os">
+    <div class="find-os flexcol">
       <h2>Find os – og få et kig indenfor</h2>
       <p>
         Kom tættere på Ashira Oure Boxing Club! Vi holder til i Waterfront
@@ -97,15 +98,72 @@ import Layout from "../layouts/Layout.astro";
 
   .om-os-ydre {
     display: flex;
-    gap: 20px;
-    max-width: 1440px;
+    gap: 70px;
+    max-width: 1020px;
     margin: 50px auto 15vh;
     color: #fff;
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1040px) {
     .om-os-ydre {
       padding: 0 40px;
+    }
+  }
+
+  .om-os {
+    align-items: center;
+    h1 {
+      margin-bottom: 3rem;
+    }
+    .om-os-indre {
+      display: flex;
+      align-items: stretch;
+      gap: 40px;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .text {
+      width: 50ch;
+    }
+
+    .om-os-indre img {
+      flex: 1 1 0;
+      width: 40%;
+      height: 100%; /* Stræk billedet i højden */
+      object-fit: cover;
+      object-position: 0 20%;
+      box-shadow: 5px 5px 0px 0px var(--color-white);
+    }
+  }
+
+  .find-os {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    p {
+      max-width: 60ch;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* Responsiv til mobil */
+  @media (max-width: 800px) {
+    .om-os-indre {
+      flex-direction: column;
+      align-items: center !important;
+      justify-content: center;
+    }
+    .text {
+      text-align: center;
+      width: 100% !important;
+      max-width: 50ch;
+    }
+    .om-os-indre img {
+      width: 100%;
+      height: 250px; /* Fast højde på mobil */
+      aspect-ratio: 1/1; /* Evt. tilføj igen på mobil */
+      object-position: 0 50%;
     }
   }
 </style>
