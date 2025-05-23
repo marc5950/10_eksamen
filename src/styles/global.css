@@ -6,7 +6,14 @@
   --color-white: #efefef;
   --color-black: #0f0f0f;
 }
-
+@font-face {
+  font-family: "helvetica-neue";
+  src:
+    url(../fonte/webfontkit-20250523-070424/helveticaneueroman-webfont.woff2)
+      format("woff2"),
+    url(../fonte/webfontkit-20250523-070424/helveticaneueroman-webfont.woff)
+      format("woff");
+}
 * {
   margin: 0;
   padding: 0;
@@ -27,12 +34,18 @@ h1,
 h2,
 h3,
 h4,
-h5,
 h6,
 li,
 label {
   font-family: "dharma-gothic-e", sans-serif;
   color: var(--color-white);
+}
+
+h5 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  font-style: normal;
 }
 a {
   font-family: "dharma-gothic-e";
@@ -58,7 +71,7 @@ input,
 textarea {
   font-size: clamp(0.7rem, 1vw, 0.9rem);
   margin: 0.5rem 0;
-  font-family: "lato", sans-serif;
+  font-family: "helvetica-neue", sans-serif;
   color: var(--color-white);
 }
 h1,
