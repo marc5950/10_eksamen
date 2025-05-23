@@ -36,15 +36,15 @@ const { hold } = Astro.props;
       <p class="desc" set:html={hold.desc_long} />
       <hr />
       <div class="skema-pris">
-        <p>
+        <h5>
           <b>Skema</b>
-          <p class="skema" set:html={hold.schedule} />
-        </p>
+          <h5 class="skema" set:html={hold.schedule} />
+        </h5>
         <hr />
-        <p>
+        <h5>
           <b>{hold.price_for}:</b>
-          <p class="pris">{hold.price},- DKK</p>
-        </p>
+          <h5 class="pris">{hold.price},- DKK</h5>
+        </h5>
         <Button
           link={`/hold/${hold.slug}`}
           text="Meld dig ind"
