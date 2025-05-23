@@ -33,102 +33,94 @@ const { hold } = Astro.props;
   <div class="singleview-outer">
     <div class="singleview-content">
       <h1>{hold.titel} - {hold.type}</h1>
-      <div class="desc" set:html={hold.desc_long} />
+      <p class="desc" set:html={hold.desc_long} />
       <hr />
       <div class="skema-pris">
-        <div>
+        <p>
           <b>Skema</b>
-          <div class="skema" set:html={hold.schedule} />
-        </div>
+          <p class="skema" set:html={hold.schedule} />
+        </p>
         <hr />
-        <div>
-          <b>Pris for 10 uger:</b>
-          <div class="pris">{hold.price},- DKK</div>
-        </div>
+        <p>
+          <b>{hold.price_for}:</b>
+          <p class="pris">{hold.price},- DKK</p>
+        </p>
+        <Button
+          link={`/hold/${hold.slug}`}
+          text="Meld dig ind"
+          class="hold-btn"
+        />
       </div>
-      <Button
-        link={`/hold/${hold.slug}`}
-        text="Meld dig ind"
-        class="hold-btn"
-      />
     </div>
     <div class="singleview-imgwrap">
       <img src={hold.img} alt={hold.titel} class="singleview-img" />
     </div>
   </div>
-</Layout>
 
-<style>
-  .singleview-outer {
-    display: flex;
-    gap: 20px;
-    min-height: 80vh;
-    max-width: 1440px;
-    margin: 15vw auto;
-    color: #fff;
-  }
-  @media (max-width: 1440px) {
+  <style>
     .singleview-outer {
-      padding: 0 40px;
+      display: flex;
+      gap: 20px;
+      min-height: 80vh;
+      max-width: 1440px;
+      margin: 15vw auto;
+      color: #fff;
     }
-  }
-  .singleview-content {
-    flex: 1 1 0;
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border: solid 3px #fff;
-    max-width: 700px;
-  }
-  .singleview-content h1 {
-    font-size: 2.5rem;
-
-    margin-bottom: 1.2rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .desc {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-  }
-  hr {
-    border: none;
-    border-top: 3px solid #fff;
-    margin: 2rem 0 1.5rem 0;
-  }
-
-  .singleview-imgwrap {
-    flex: 1 1 0;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-    min-width: 0;
-  }
-  .singleview-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 0 20%;
-    max-height: 100vh;
-    border-radius: 0;
-    display: block;
-  }
-  @media (max-width: 900px) {
-    .singleview-outer {
-      flex-direction: column;
-    }
-    .singleview-imgwrap {
-      min-height: 250px;
-      max-height: 350px;
-    }
-    .singleview-img {
-      max-height: 350px;
+    @media (max-width: 1440px) {
+      .singleview-outer {
+        padding: 0 40px;
+      }
     }
     .singleview-content {
-      max-width: 100vw;
-      padding: 2rem 1rem;
+      flex: 1 1 0;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border: solid 3px #fff;
+      max-width: 700px;
     }
-  }
-</style>
+    .singleview-content h1 {
+      text-transform: uppercase;
+    }
+
+    hr {
+      border: none;
+      border-top: 3px solid #fff;
+      margin: 2rem 0 1.5rem 0;
+    }
+
+    .singleview-imgwrap {
+      flex: 1 1 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+      min-width: 0;
+    }
+    .singleview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 0 20%;
+      max-height: 100vh;
+      border-radius: 0;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .singleview-outer {
+        flex-direction: column;
+      }
+      .singleview-imgwrap {
+        min-height: 250px;
+        max-height: 350px;
+      }
+      .singleview-img {
+        max-height: 350px;
+      }
+      .singleview-content {
+        max-width: 100vw;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</Layout>
