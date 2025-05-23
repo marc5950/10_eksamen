@@ -1,8 +1,8 @@
 ---
-const { link, text } = Astro.props;
+const { link, text, cardknap } = Astro.props;
 ---
 
-<button
+<button class={cardknap}
   ><a href={link}>
     {text}
   </a></button
@@ -38,5 +38,11 @@ const { link, text } = Astro.props;
     a {
       color: var(--color-white);
     }
+  }
+  .cardknap {
+    background: var(--color-primary);
+    font-size: 1.5rem;
+    color: var(--color-white);
+    border-radius: 3px;
   }
 </style>
