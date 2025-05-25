@@ -4,6 +4,7 @@ const { title } = Astro.props;
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import texture from "../assets/bg_texture.png";
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -27,7 +28,7 @@ import texture from "../assets/bg_texture.png";
   <body>
     <img class="texture" src={texture.src} alt="#" />
     <div id="container">
-      <header><Header /></header>
+      <header><Header currentPath={currentPath} /></header>
       <main>
         <slot />
       </main>
