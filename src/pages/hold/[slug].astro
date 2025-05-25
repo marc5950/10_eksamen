@@ -36,20 +36,25 @@ const { hold } = Astro.props;
       <p class="desc" set:html={hold.desc_long} />
       <hr />
       <div class="skema-pris">
-        <h5>
-          <b>Skema</b>
+        <div class="skemaboks flex">
+          <h5>Skema</h5>
           <h5 class="skema" set:html={hold.schedule} />
-        </h5>
+        </div>
         <hr />
-        <h5>
-          <b>{hold.price_for}:</b>
-          <h5 class="pris">{hold.price},- DKK</h5>
-        </h5>
-        <Button
-          link={`/hold/${hold.slug}`}
-          text="Meld dig ind"
-          class="hold-btn"
-        />
+        <div class="prisboks flex">
+          <div class="flexcol">
+            <h5>
+              {hold.price_for}:
+            </h5>
+            <h5 class="pris">{hold.price},- DKK</h5>
+          </div>
+
+          <Button
+            link={`/hold/${hold.slug}`}
+            text="Meld dig ind"
+            class="hold-btn"
+          />
+        </div>
       </div>
     </div>
     <div class="singleview-imgwrap">
@@ -105,6 +110,16 @@ const { hold } = Astro.props;
       max-height: 100vh;
       border-radius: 0;
       display: block;
+    }
+
+    .skemaboks {
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    .prisboks {
+      justify-content: space-between;
+      align-items: end;
     }
     @media (max-width: 900px) {
       .singleview-outer {

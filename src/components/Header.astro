@@ -152,7 +152,7 @@ import logo from "../assets/logo.svg";
   }
 </style>
 
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     const burger = document.getElementById("burgerBtn");
     const nav = document.getElementById("navLinks");
@@ -164,5 +164,22 @@ import logo from "../assets/logo.svg";
         nav.classList.contains("open") ? "true" : "false",
       );
     });
+  });
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.getElementById("burgerBtn");
+    const nav = document.getElementById("navLinks");
+    if (burger && nav) {
+      burger.addEventListener("click", function () {
+        nav.classList.toggle("open");
+        burger.classList.toggle("open");
+        burger.setAttribute(
+          "aria-expanded",
+          nav.classList.contains("open") ? "true" : "false",
+        );
+      });
+    }
   });
 </script>
