@@ -3,9 +3,6 @@
 import "../styles/global.css";
 import headerbillede from "../assets/header.svg";
 import logo from "../assets/logo.svg";
-
-// Få den aktuelle sti
-const { currentPath = "/" } = Astro.props;
 ---
 
 <div class="header">
@@ -22,20 +19,11 @@ const { currentPath = "/" } = Astro.props;
     <span class="bar"></span>
   </button>
   <div class="link" id="navLinks">
-    <a href="/traenerne" class={currentPath === "/traenerne" ? "active" : ""}
-      >Trænere</a
-    >
-    <a href="/om_os" class={currentPath === "/om_os" ? "active" : ""}>Om os</a>
-    <a href="/" class={currentPath === "/" ? "active" : ""}
-      ><img src={logo.src} alt="" /></a
-    >
-    <a href="/kontakt" class={currentPath === "/kontakt" ? "active" : ""}
-      >Kontakt</a
-    >
-    <a
-      href="/holdtraening"
-      class={currentPath === "/holdtraening" ? "active" : ""}>Book nu</a
-    >
+    <a href="/traenerne">Trænere</a>
+    <a href="/om_os">Om os</a>
+    <a href="/"><img src={logo.src} alt="" /></a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/holdtraening">Book nu</a>
   </div>
 </div>
 
@@ -184,6 +172,7 @@ const { currentPath = "/" } = Astro.props;
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Burger-menu kode
     const burger = document.getElementById("burgerBtn");
     const nav = document.getElementById("navLinks");
     if (burger && nav) {
@@ -196,5 +185,14 @@ const { currentPath = "/" } = Astro.props;
         );
       });
     }
+
+    // Active link kode
+    const path = window.location.pathname.replace(/\/$/, "");
+    document.querySelectorAll("#navLinks a").forEach((link) => {
+      const href = link.getAttribute("href").replace(/\/$/, "");
+      if (href === path || (href === "" && path === "")) {
+        link.classList.add("active");
+      }
+    });
   });
 </script>
