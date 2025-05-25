@@ -5,7 +5,7 @@ import headerbillede from "../assets/header.svg";
 import logo from "../assets/logo.svg";
 
 // Få den aktuelle sti
-const { currentPath } = Astro.props;
+const currentPath = new URL(Astro.request.url).pathname;
 ---
 
 <div class="header">
