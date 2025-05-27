@@ -25,6 +25,14 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
         bokser, er vores mål at hjælpe dig med at nå dit fulde potentiale.
       </h2>
     </div>
+    <div class="scrollknap flex">
+      <button class="nav-btn prev-btn">
+        <img src={venstre.src} alt="" />
+      </button>
+      <button class="nav-btn next-btn">
+        <img src={højre.src} alt="" />
+      </button>
+    </div>
     <div class="cards-container">
       <div class="trainer-cards">
         <div class="trainer-card">
@@ -100,21 +108,12 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
         </div>
       </div>
     </div>
-    <div class="scrollknap flex">
-      <button class="nav-btn prev-btn">
-        <img src={venstre.src} alt="" />
-      </button>
-      <button class="nav-btn next-btn">
-        <img src={højre.src} alt="" />
-      </button>
-    </div>
   </div>
 </Layout>
 
 <style>
   .ydre {
     padding: 50px 10px;
-    min-height: 100vh;
     height: max-content;
     gap: 20px;
     margin-top: 14vh;
@@ -155,6 +154,9 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
   }
 
   @media (max-width: 768px) {
+    .ydre {
+      margin: 50px 0;
+    }
     .cards-container {
       min-height: 60vh;
       max-height: 90vh;
@@ -179,7 +181,7 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
       object-fit: contain !important;
     }
     .scrollknap {
-      margin-top: -50px !important;
+      margin-bottom: -170px !important;
     }
   }
 
@@ -236,7 +238,7 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
   .scrollknap {
     gap: 20px;
     padding: 20px 0;
-    max-height: 70px;
+    margin: 30px 0 -100px;
     height: 100%;
     z-index: 50;
   }
@@ -351,6 +353,41 @@ import bg_trænerne from "../assets/bg_trænerne.webp";
       nextBtn.addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % totalCards;
         updateActiveCard();
+      });
+
+      // Swipe-funktionalitet
+      let startX = 0;
+      let endX = 0;
+
+      cardsContainer.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+        }
+      });
+
+      cardsContainer.addEventListener("touchmove", (e) => {
+        if (e.touches.length === 1) {
+          endX = e.touches[0].clientX;
+        }
+      });
+
+      cardsContainer.addEventListener("touchend", () => {
+        const diffX = endX - startX;
+        if (Math.abs(diffX) > 50) {
+          // Minimum swipe distance
+          if (diffX < 0) {
+            // Swipe left (next)
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateActiveCard();
+          } else {
+            // Swipe right (prev)
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateActiveCard();
+          }
+        }
+        // Reset values
+        startX = 0;
+        endX = 0;
       });
 
       // Initialiser karrusellen

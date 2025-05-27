@@ -189,8 +189,10 @@ import logo from "../assets/logo.svg";
     // Active link kode
     const path = window.location.pathname.replace(/\/$/, "");
     document.querySelectorAll("#navLinks a").forEach((link) => {
-      const href = link.getAttribute("href").replace(/\/$/, "");
-      if (href === path || (href === "" && path === "")) {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const cleanHref = href.replace(/\/$/, "");
+      if (cleanHref === path || (cleanHref === "" && path === "")) {
         link.classList.add("active");
       }
     });
