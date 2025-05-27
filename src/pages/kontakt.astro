@@ -41,23 +41,29 @@ import logo from "../assets/logo.svg";
           Har du spørgsmål om træning, hold eller prøvetime?<br />
           Du er altid velkommen til at ringe — vi står klar til at hjælpe dig.<br
           />
-          Tlf.: [Indsæt nummer]
         </p>
+        <p><a class="linkitekst" href="tel:12345678">Tlf.: +4512345678</a></p>
       </div>
       <div>
         <h3>SKRIV TIL OS</h3>
         <p>
           Vil du høre mere om introhold, firmatræning eller samarbejde?<br />
           Send os en mail — vi svarer hurtigst muligt.<br />
-          info@ashiraboxing.dk
         </p>
+        <a class="linkitekst" href="mailto:“info@ashiraboxing.dk”"
+          >info@ashiraboxing.dk</a
+        >
       </div>
       <div>
         <h3>BESØG OS</h3>
         <p>
           Kom forbi og mærk stemningen i klubben.<br />
           Vi holder til i Wellcome Fitness i Hellerup.<br />
-          Callisensvej 14, 2900 Hellerup<br />
+        </p>
+        <a class="linkitekst" href="https://g.co/kgs/Z83JAgK"
+          >Callisensvej 14, 2900 Hellerup</a
+        >
+        <p>
           <br />
 
           Ashira Oure Boxing Club<br />
@@ -96,6 +102,13 @@ import logo from "../assets/logo.svg";
       font-family: "dharma-gothic-e", sans-serif;
       font-size: 1.4rem;
     }
+  }
+  .linkitekst {
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    margin: 0.5rem 0;
+    font-family: "helvetica-neue", sans-serif;
+    color: var(--color-white);
+    text-decoration: underline;
   }
   .kontakt-form {
     flex: 1;
