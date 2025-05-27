@@ -16,14 +16,16 @@ Dette repository indeholder kildekoden til Ashira Oure Boxing Club website for K
 - [Supabase](https://supabase.com/) - Database og API
 - Vanilla JavaScript
 - CSS
+- HTML
 
 ## Projektstruktur
 
 - `src/components/` - Genbrugelige UI komponenter
-- `src/layouts/` - Side layouts
+- `src/layouts/` - Side layout
 - `src/pages/` - Forskellige sider og routes
 - `src/assets/` - Billeder og andre statiske filer
 - `src/styles/` - CSS styles
+- `src/fonte/` - Web fonte
 
 ## Installation og kørsel
 
@@ -53,13 +55,13 @@ npm run build
 
 ## Features
 
-### Event Filtrering
+### Database med boksehold
 
-Hjemmesiden inkluderer en event-filtreringsfunktion, der giver brugerne mulighed for at skifte mellem at se de nyeste events eller kommende events. Implementeringen bruger to separate lister, der vises/skjules baseret på brugerinteraktion.
+Hjemmesiden inkluderer en database med de forskellige boksehold man kan melde sig til. Dette opdateres dynamisk via et API.
 
-### Dropdown-menuer
+### Filter effekt
 
-Siden bruger interaktive dropdown-menuer til at organisere information om Circular Lab's tilbud og services. Dette giver en mere overskuelig præsentation af indhold.
+Der burges et filter billede overalt på sitet med "pointer-events: none;" så man ikke kan interagere med det.
 
 ### Responsivt design
 
