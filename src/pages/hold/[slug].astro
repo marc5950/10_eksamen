@@ -71,6 +71,7 @@ const { hold } = Astro.props;
       margin: 15vw auto;
       color: #fff;
     }
+
     @media (max-width: 1440px) {
       .singleview-outer {
         padding: 0 40px;
@@ -88,7 +89,13 @@ const { hold } = Astro.props;
     .singleview-content h1 {
       text-transform: uppercase;
     }
-
+    .desc {
+      br {
+        display: block;
+        content: "";
+        margin-top: 10px;
+      }
+    }
     hr {
       border: none;
       border-top: 3px solid #fff;
