@@ -5,10 +5,10 @@ Dette repository indeholder kildekoden til Ashira Oure Boxing Club website for K
 ## Funktioner
 
 - Responsivt design til både mobil og desktop
-- Dynamisk events-kalender med filtrering mellem nyeste og kommende events
-- Dropdown-menuer for forskellige informationssektioner
-- Integration med Supabase som backend for events data
-- Event-detaljesider med dynamisk indholdsvisning
+- Dynamisk side til forskellige boksehold med filtrering mellem 1:1 og holdtræninger
+- Integration med Supabase som backend for hold data
+- Kontakt os side med en form
+- Visuel og interaktiv præsentation af trænerne
 
 ## Teknologier
 
