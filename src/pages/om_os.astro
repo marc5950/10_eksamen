@@ -50,15 +50,26 @@ import omos from "../assets/om-os.webp";
         Centeret. Brug kortet nedenfor til at finde vej, og tag en 3D virtuel
         rundtur i klubben, før du besøger os.
       </p>
-      <iframe
-        src="https://storage.googleapis.com/maps-solutions-movlz2t660/locator-plus/n7iy/locator-plus.html"
-        title="Find os maps"
-        width="100%"
-        height="500px"
-        style="border:0;"
-        loading="lazy"
-      >
-      </iframe>
+      <div class="find-os-video flex">
+        <iframe
+          src="https://www.youtube.com/embed/R7MhtgN430k"
+          title="Virtuel 3D tour af Ashira Oure Boxing Club"
+          height="500px"
+          width="100%"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <iframe
+          src="https://storage.googleapis.com/maps-solutions-movlz2t660/locator-plus/n7iy/locator-plus.html"
+          title="Find os maps"
+          height="500px"
+          width="100%"
+          style="border:0;"
+          loading="lazy"
+        >
+        </iframe>
+      </div>
     </div>
   </div>
 </Layout>
@@ -109,6 +120,13 @@ import omos from "../assets/om-os.webp";
     max-width: 1020px;
     width: 100%;
     aspect-ratio: 16/9;
+  }
+  .find-os-video {
+    gap: 20px;
+    min-height: 400px;
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
   }
 
   .om-os-ydre {
