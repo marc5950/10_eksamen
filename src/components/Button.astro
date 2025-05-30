@@ -33,7 +33,7 @@ const { link, text, cardknap } = Astro.props;
   }
 
   button:hover {
-    background: var(--color-secondary, #bf1f26);
+    background: var(--color-secondary);
     border: 1px solid var(--color-white);
     a {
       color: var(--color-white);
@@ -46,6 +46,21 @@ const { link, text, cardknap } = Astro.props;
     border: 1px solid #ffffff;
     a {
       color: var(--color-white);
+    }
+  }
+  .hold-header-alt {
+    background: var(--color-secondary);
+    font-size: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid #ffffff;
+  }
+  .hold-header-alt:hover {
+    background: var(--color-white);
+    font-size: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid var(--color-black);
+    a {
+      color: var(--color-black);
     }
   }
 </style>

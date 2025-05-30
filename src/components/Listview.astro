@@ -1,6 +1,6 @@
 ---
 // Definer props til komponenten
-const { hold } = Astro.props;
+const { hold, alt } = Astro.props;
 import Button from "./Button.astro";
 ---
 
@@ -14,7 +14,9 @@ import Button from "./Button.astro";
       width="100%"
       height="auto"
     />
-    <div class="hold-header"><h3>{hold.titel} - {hold.type}</h3></div>
+    <div class={`hold-header ${alt}`}>
+      <h3>{hold.titel} - {hold.type}</h3>
+    </div>
 
     <p class="hold-beskrivelse">{hold.desc_short}</p>
     <div class="hold-tid">
@@ -32,7 +34,7 @@ import Button from "./Button.astro";
       <Button
         link={`/hold/${hold.slug}`}
         text="Læs mere"
-        cardknap="cardknap"
+        cardknap={`cardknap ${alt}`}
         class="hold-btn"
       />
     </div>
@@ -81,6 +83,9 @@ import Button from "./Button.astro";
     h3 {
       font-size: clamp(1.3rem, 3vw, 1.8rem);
     }
+  }
+  .hold-header-alt {
+    background-color: var(--color-secondary) !important;
   }
 
   .hold-tid {

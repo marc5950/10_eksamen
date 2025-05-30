@@ -3,6 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 import Listview from "../components/Listview.astro";
 import booknu from "../assets/book-nu.webp";
+import bghvid from "../assets/bg_footerhvid.webp";
 
 const url = "https://lmpnyqlifuywoupnqsea.supabase.co/rest/v1/Hold?select=*";
 const key =
@@ -52,10 +53,15 @@ const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
         <div class="hold">
           {holdtræning.map((hold) => <Listview hold={hold} />)}
         </div>
-        <h2>1:1 træninger</h2>
-        <div class="hold">
-          {personal.map((hold) => <Listview hold={hold} />)}
-        </div>
+      </div>
+    </div>
+  </div>
+  <img src={bghvid.src} alt="#" />
+  <div class="holdtræningerydre_alt ydre">
+    <div class="holdtræningerindre_alt indre">
+      <h2>1:1 træninger</h2>
+      <div class="hold">
+        {personal.map((hold) => <Listview hold={hold} alt="hold-header-alt" />)}
       </div>
     </div>
   </div>
@@ -119,7 +125,6 @@ const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-bottom: 70px;
   }
 
   h2 {
@@ -128,6 +133,14 @@ const personal = data.filter((hold) => hold.type === "1:1 PERSONAL");
     font-size: clamp(2rem, 4vw, 3rem);
   }
   .holdtræningerydre {
+    margin: 10px;
+  }
+  .holdtræningerydre_alt {
+    background-color: #343a40;
+    padding: 70px 0 140px 0;
+    margin-top: -70px;
+  }
+  .holdtræningerindre_alt {
     margin: 10px;
   }
 </style>
